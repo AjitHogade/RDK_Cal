@@ -1,5 +1,7 @@
  <ion-view title="Calendar">
         <ion-content>
-          This is calendar
+        <div ng-controller='CalTabCtrl' class="cal_h">
+          <div class="calendar" ng-model="eventSources" ui-calendar="calOptions"></div>
+      </div>
         </ion-content>
       </ion-view>
