@@ -98,10 +98,7 @@ angular.module('ionicApp', ['ionic','ui.calendar'])
 .controller('HomeTabCtrl', function($scope) {
 })
 .controller('CalTabCtrl', function($scope) {
-  $('#calendar').fullCalendar({
-
-    height: 1000
-});
+ 
   var events = [
         {
           title: 'All Day Event',
@@ -163,12 +160,16 @@ angular.module('ionicApp', ['ionic','ui.calendar'])
           $scope.eventSources = [];
           $scope.eventSources.push(events)
             $scope.calOptions = {
+              lang:'hi',
+             height: ($(window).height()) - ($('#calendar').fullCalendar('option', 'height', 1000)),
               editable : true,
               header : {
-                left:'prev',
-                center:'title',
-               right:'next'
-              }
+               left: 'title',
+            center: 'agendaDay,agendaWeek,month',
+            right: 'today prev,next'
+              },
+             
+
             };
            
 }); 
