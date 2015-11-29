@@ -46,7 +46,7 @@ body .fc { /* extra precedence to overcome jqui */
 }
 
 .fc-unthemed .fc-today {
-	background: #fcf8e3;
+	
 }
 
 .fc-highlight { /* when user is selecting cells */
@@ -69,13 +69,15 @@ body .fc { /* extra precedence to overcome jqui */
 
 /* Icons (inline elements with styled text that mock arrow icons)
 --------------------------------------------------------------------------------------------------*/
-
+.fc h2{
+font-size:22px !important;
+}
 .fc-icon {
 	display: inline-block;
 	width: 1em;
 	height: 1em;
 	line-height: 1em;
-	font-size: 1em;
+	font-size: 2em;
 	text-align: center;
 	overflow: hidden;
 	font-family: "Courier New", Courier, monospace;
@@ -168,9 +170,9 @@ NOTE: use percentage font sizes or else old IE chokes
 
 	/* dimensions */
 	margin: 0;
-	height: 4.1em;
-	padding: 0 .6em;
-	width: 4.1em;
+	height: 2em;
+	padding: 0em;
+	width: 5em;
 
 	/* text & cursor */
 	font-size: 1em; /* normalize */
@@ -334,7 +336,7 @@ previous button's border...
 
 .fc-divider {
 	border-style: solid;
-	border-width: 1px;
+	border-width: 0px;
 }
 
 hr.fc-divider {
@@ -372,53 +374,61 @@ hr.fc-divider {
 --------------------------------------------------------------------------------------------------*/
 
 .fc table {
+
 	width: 100%;
-	table-layout: fixed;
-	border-collapse: collapse;
-	border-spacing: 0;
-	font-size: 1em; /* normalize cross-browser */
+border-spacing: 1px;
+     table-layout: fixed;	
+	 border-collapse: separate;
+	
+/* normalize cross-browser */
 }
 
 .fc th {
-	text-align: center;
-}
 
-.fc th,
-.fc td {
-	border-style: solid;
-	border-radius: 5px;
+	text-align: center;
+	border: 1px solid #bbb;
+    border-collapse: separate;
+	border-radius: 10px;
 	border-width: 1px;
 	padding: 0;
 	vertical-align: top;
+	background-color: #666666;
+	color: white;
+	font-weight: bold;
 }
 
-.fc td.fc-today {
-	border-style: double; /* overcome neighboring borders */
+
+.fc td {
+
+	 border-collapse: separate;
+	 border: 1px solid #bbb;
+	border-radius: 8px;
+	padding: 0;
+	vertical-align: top;
+	color: black;
+	font-weight: bold;
+	background-color: #ffffe5;
 }
 
+td.fc-today {
+	 text-decoration: underline;
+	 font-weight: bold;
+	 color: #b30000;
+	 font-size: 22px;
+
+}
+.fc td.fc-sun {
+	background-color:#ffb299;
+	border-top: 1px solid #bbb !important;
+}
+.fc th.fc-sun {
+	color: black;
+	background-color:#ffb299;
+	
+}
 
 /* Fake Table Rows
 --------------------------------------------------------------------------------------------------*/
-
-.fc .fc-row { /* extra precedence to overcome themes w/ .ui-widget-content forcing a 1px border */
-	/* no visible border by default. but make available if need be (scrollbar width compensation) */
-	border-style: solid;
-	border-width: 0;
-}
-
-.fc-row table {
-	/* don't put left/right border on anything within a fake row.
-	   the outer tbody will worry about this */
-	border-left: 0 hidden transparent;
-	border-right: 0 hidden transparent;
-
-	/* no bottom borders on rows */
-	border-bottom: 0 hidden transparent; 
-}
-
-.fc-row:first-child table {
-	border-top: 0 hidden transparent; /* no top border on first row */
-}
 
 
 /* Day Row (used within the header and the DayGrid)
@@ -429,7 +439,7 @@ hr.fc-divider {
 }
 
 .fc-row .fc-bg {
-	z-index: 1;
+	
 }
 
 /* highlighting cells & background event skeleton */
@@ -795,6 +805,7 @@ a.fc-more:hover {
 .fc-basic-view td.fc-day-number {
 	padding-top: 2px;
 	padding-bottom: 2px;
+	
 }
 
 .fc-basic-view .fc-week-number {
@@ -809,6 +820,7 @@ a.fc-more:hover {
 
 .fc-ltr .fc-basic-view .fc-day-number {
 	text-align: right;
+
 }
 
 .fc-rtl .fc-basic-view .fc-day-number {

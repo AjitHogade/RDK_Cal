@@ -4,6 +4,7 @@
  *
  * Ionic, v1.0.0-beta.8
  * A powerful HTML5 mobile app framework.
+
  * http://ionicframework.com/
  *
  * By @maxlynch, @benjsperry, @adamdbradley <3
@@ -17,6 +18,7 @@
   https://twitter.com/benjsperry  https://twitter.com/ionicframework
   MIT License: https://github.com/driftyco/ionicons
 */
+
 @font-face {
   font-family: "Ionicons";
   src: url("../fonts/ionicons.eot?v=1.5.2");
@@ -2756,13 +2758,26 @@ a.subdued {
     color: #444; }
     .bar.bar-stable .title {
       color: #444; }
+      /*--header edit */
+      .title-image {
+    margin-top: 2px;
+    margin-bottom: -8px;
+    border-radius: 15px;
+    height: 38px;
+    width: 35px;
+}
   .bar.bar-positive {
     border-color: #145fd7;
-    background-color: #4a87ee;
+    background-color: red;
     background-image: linear-gradient(0deg, #145fd7, #145fd7 50%, transparent 50%);
     color: #fff; }
+
     .bar.bar-positive .title {
-      color: #fff; }
+      color: blue; 
+      font-weight: bold;
+      font-size: 1.7em;
+      text-shadow: 2px 2px 3px yellow,2px 2px 3px yellow;
+  }
   .bar.bar-calm {
     border-color: #1aacc3;
     background-color: #43cee6;
@@ -3160,7 +3175,7 @@ a.subdued {
 
 .tabs-positive > .tabs, .tabs.tabs-positive {
   border-color: #145fd7;
-  background-color: #4a87ee;
+  background-color: red;
   background-image: linear-gradient(0deg, #145fd7, #145fd7 50%, transparent 50%);
   color: #fff; }
   .tabs-positive > .tabs .tab-item .badge, .tabs.tabs-positive .tab-item .badge {

@@ -91,11 +91,20 @@ angular.module('ionicApp', ['ionic','ui.calendar'])
   $scope.showMenu = function () {
     $ionicSideMenuDelegate.toggleLeft();
   };
-  $scope.showRightMenu = function () {
-    $ionicSideMenuDelegate.toggleRight();
-  };
+ 
 })
 .controller('HomeTabCtrl', function($scope) {
+})
+.controller("ExampleController", function($scope) {
+ 
+    $scope.images = [];
+ 
+    $scope.loadImages = function() {
+        for(var i = 0; i < 100; i++) {
+            $scope.images.push({id: i, src: "http://placehold.it/50x50"});
+        }
+    }
+ 
 })
 .controller('CalTabCtrl', function($scope) {
  
@@ -164,9 +173,9 @@ angular.module('ionicApp', ['ionic','ui.calendar'])
              height: ($(window).height()) - ($('#calendar').fullCalendar('option', 'height', 1000)),
               editable : true,
               header : {
-               left: 'title',
-            center: 'agendaDay,agendaWeek,month',
-            right: 'today prev,next'
+               left: 'prev',
+            center: 'title,today',
+            right: 'next'
               },
              
 
