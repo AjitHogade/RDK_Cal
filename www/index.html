@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
-
+    <link href="lib/ionic-material/ion-md-input.css" rel="stylesheet">
+        <link href="lib/ionic-material/ionic.material.min.css" rel="stylesheet">
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
         <link href="css/fullcalendar.css" rel="stylesheet">
@@ -19,28 +20,7 @@
 
 
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
 
-    <!-- your app's js -->
-  
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-ui.custom.min.js"></script>
-                <script src="js/moment.min.js"></script>
-
-        <script src="js/fullcalendar.js">
-
-        </script>
-        <script src="language/hi.js">
-
-        </script>
-
-
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-
-    <script src="js/controllers.js"></script>
-    <script src="js/calendar.js"></script>
-    <script src="js/app.js"></script>
 
     </head>
 
@@ -72,26 +52,32 @@
               <h1 class="title">Left Menu</h1>
             </ion-header-bar>
             <ion-content has-header="true">
-              <ul class="list">
-                <li>
-                  <a class="item" menu-close nav-clear href="#/tab/home">होम⁠⁠⁠⁠</a>
+              <ul class="list animate-fade-slide-in-right">
+                <li > <a class="item item-icon-left" href="#/tab/home">
+    <i class="icon ion-home"></i>
+    होम⁠⁠⁠⁠
+  </a>
                 </li>
                 <li>
-                  <a class="item" menu-close href="#/tab/facts">चरित्र</a>
+                  <a class="item item-icon-left" menu-close href="#/tab/facts"><i class="icon ion-person-stalker"></i>चरित्र</a>
                 </li>
 
                 <li>
-                  <a class="item" menu-close href="#/tab/facts2">कार्यक्रम</a>
+                  <a class="item item-icon-left" menu-close href="#/tab/facts2">
+                    <i class="icon ion-videocamera"></i>कार्यक्रम</a>
                 </li>
              <li>
-                  <a class="item" menu-close nav-clear href="#/tab/home">ग्रंथभंडार</a>
+                  <a class="item item-icon-left" menu-close nav-clear href="#/tab/home">
+                    <i class="icon ion-clipboard"></i>ग्रंथभंडार</a>
                 </li>
                 <li>
-                  <a class="item" menu-close href="#/tab/facts">देणगी</a>
+                  <a class="item item-icon-left" menu-close href="#/tab/facts">
+                    <i class="icon ion-social-usd"></i>देणगी</a>
                 </li>
 
                 <li>
-                  <a class="item" menu-close href="#/tab/facts2">संपर्क</a>
+                  <a class="item item-icon-left" menu-close href="#/tab/facts2">
+                    <i class="icon ion-android-call"></i>संपर्क</a>
                 </li>
     
               </ul>
@@ -115,8 +101,50 @@
           </ion-side-menu>
          -->  
         </ion-side-menus>
-     
+        <script id="event-modal.html" type="text/ng-template">
+        alert("here");
+<div class="modal">
+<ion-header-bar class="bar-stable">
+<h1 class="title">New Task</h1>
+<button class="button button-clear button-positive" ng-click="closeTask()">Cancel
+</button>
+</ion-header-bar>
+<ion-content>
 
+<label class="item item-input">
+</label>
+<button type="submit" class="button button-block button-positive">Create Task</button>
+
+
+</form>
+</ion-content>
+</div>
+</script>
+     
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+  
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.custom.min.js"></script>
+                <script src="js/moment.min.js"></script>
+
+        <script src="js/fullcalendar.js">
+
+        </script>
+        <script src="language/hi.js">
+
+        </script>
+
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+<script src="lib/ionic-material/ionic.material.js"></script>
+<script src="lib/ionic-material/ion-md-input.js"></script>
+
+    <script src="js/controllers.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/app.js"></script>
   </body>
 
 </html>

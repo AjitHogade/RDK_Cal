@@ -1,4 +1,4 @@
-angular.module('ionicApp', ['ionic','ui.calendar'])
+angular.module('ionicApp', ['ionic','ui.calendar','ionic-material', 'ionMdInput'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -74,14 +74,24 @@ angular.module('ionicApp', ['ionic','ui.calendar'])
         }
       }
       })
-    .state('tabs.info', {
-      url: "/info",
-      views: {
-        'info-tab': {
-          templateUrl: "templates/info.html"
+     .state('tabs.info', {
+        url: '/info',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/info.html',
+                controller: 'InfoCtrl'
+            },
+            'fabContent': {
+                template: '<button id="fab-friends" class="button button-fab button-fab-top-left expanded button-energized-900 spin"><i class="icon ion-chatbubbles"></i></button>',
+                controller: function ($timeout) {
+                    $timeout(function () {
+                        document.getElementById('fab-friends').classList.toggle('on');
+                    }, 900);
+                }
+            }
         }
-      }
     })
+   
 
 
    $urlRouterProvider.otherwise("/tab/home");
@@ -95,6 +105,23 @@ angular.module('ionicApp', ['ionic','ui.calendar'])
 })
 .controller('HomeTabCtrl', function($scope) {
 })
+.controller('InfoCtrl', function($scope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion) {
+    // Set Header
+    
+
+    // Delay expansion
+    $timeout(function() {
+        $scope.isExpanded = true;
+        $scope.$parent.setExpanded(true);
+    }, 0);
+
+    // Set Motion
+    ionicMaterialMotion.fadeSlideInRight();
+
+    // Set Ink
+    ionicMaterialInk.displayEffect();
+})
+
 .controller("ExampleController", function($scope) {
  
     $scope.images = [];
@@ -106,8 +133,9 @@ angular.module('ionicApp', ['ionic','ui.calendar'])
     }
  
 })
-.controller('CalTabCtrl', function($scope) {
- 
+.controller('CalTabCtrl', function($scope ,$ionicModal, $ionicPopup) {
+
+    
   var events = [
         {
           title: 'All Day Event',
@@ -152,8 +180,9 @@ angular.module('ionicApp', ['ionic','ui.calendar'])
           start: '2015-02-12T17:30:00'
         },
         {
-          title: 'Dinner',
-          start: '2015-02-12T20:00:00'
+          title: '🌓 Dinner',
+          start: '2015-11-30',
+           description: 'long description sasasasa sasa sasa sasa sasa sasas asa sasas asas as asa sas ',
         },
         {
           title: 'Birthday Party',
@@ -169,6 +198,7 @@ angular.module('ionicApp', ['ionic','ui.calendar'])
           $scope.eventSources = [];
           $scope.eventSources.push(events)
             $scope.calOptions = {
+              editable: true,
               lang:'hi',
              height: ($(window).height()) - ($('#calendar').fullCalendar('option', 'height', 1000)),
               editable : true,
@@ -177,9 +207,54 @@ angular.module('ionicApp', ['ionic','ui.calendar'])
             center: 'title,today',
             right: 'next'
               },
+              eventClick: function(calEvent, jsEvent, view){
+              //  eventModal();
+                var a=calEvent.description;
+                var b=calEvent.title;
+                alert('Event: ' +a );
+
+    $scope.safeApply(function(){
+ alert('Event: ' + calEvent.description);
+      $scope.eventModal(a,b)
+    });
+  
+        //function(calEvent, jsEvent, view) {
+
+        // alert('Event: ' + calEvent.description);
+        // alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+        // alert('View: ' + view.name);
+
+        // change the border color just for fun
+  //      $(this).css('border-color', 'red');
+
+    },
+
              
 
             };
-           
+
+ $scope.eventModal=function(a,b){
+ alert(b);
+ $scope.eventModal.show();
+}
+  $ionicModal.fromTemplateUrl('modal.html', function($ionicModal) {
+        $scope.eventModal = $ionicModal;
+    },{
+        // Use our scope for the scope of the modal to keep it simple
+        scope: $scope,
+        // The animation we want to use for the modal entrance
+        animation: 'slide-in-up'
+    });  
+$scope.safeApply = function(fn) {
+  var phase = this.$root.$$phase;
+  if(phase == '$apply' || phase == '$digest') {
+    if(fn && (typeof(fn) === 'function')) {
+      fn();
+    }
+  } else {
+    this.$apply(fn);
+  }
+};       
 }); 
+
 
