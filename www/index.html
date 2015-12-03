@@ -105,18 +105,17 @@
         alert("here");
 <div class="modal">
 <ion-header-bar class="bar-stable">
-<h1 class="title">New Task</h1>
-<button class="button button-clear button-positive" ng-click="closeTask()">Cancel
+<h1 class="title">{{modalData.selectedDate}}</h1>
+<button class="button button-clear button-positive" ng-click="closeModal()">Done
 </button>
 </ion-header-bar>
 <ion-content>
-
-<label class="item item-input">
-</label>
-<button type="submit" class="button button-block button-positive">Create Task</button>
-
-
-</form>
+<center>
+ <h1>{{modalData.eventTitle}}</h1></center>
+ <br />
+ <h3 style="margin-left:20px;margin-right:20px">
+{{modalData.description}}
+ </h3>
 </ion-content>
 </div>
 </script>
@@ -143,7 +142,7 @@
 <script src="lib/ionic-material/ion-md-input.js"></script>
 
     <script src="js/controllers.js"></script>
-    <script src="js/calendar.js"></script>
+    <script src="js/calendar.js"></script>  
     <script src="js/app.js"></script>
   </body>
 

@@ -105,146 +105,64 @@ angular.module('ionicApp', ['ionic','ui.calendar','ionic-material', 'ionMdInput'
 })
 .controller('HomeTabCtrl', function($scope) {
 })
-.controller('InfoCtrl', function($scope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion) {
-    // Set Header
-    
-
-    // Delay expansion
-    $timeout(function() {
-        $scope.isExpanded = true;
-        $scope.$parent.setExpanded(true);
-    }, 0);
-
-    // Set Motion
-    ionicMaterialMotion.fadeSlideInRight();
-
-    // Set Ink
-    ionicMaterialInk.displayEffect();
+.controller('InfoCtrl', function($scope, $stateParams, $timeout) {
+   
 })
 
 .controller("ExampleController", function($scope) {
- 
-    $scope.images = [];
- 
+    $scope.images = []; 
     $scope.loadImages = function() {
         for(var i = 0; i < 100; i++) {
             $scope.images.push({id: i, src: "http://placehold.it/50x50"});
         }
     }
- 
 })
 .controller('CalTabCtrl', function($scope ,$ionicModal, $ionicPopup) {
-
-    
-  var events = [
-        {
-          title: 'All Day Event',
-          start: '2015-02-01'
-
-        },
-        {
-          title: 'Long Event',
-          start: '2015-02-07',
-          end: '2015-02-10'
-        },
-        {
-          id: 999,
-          title: 'Repeating Event',
-          start: '2015-02-09T16:00:00'
-        },
-        {
-          id: 999,
-          title: 'Repeating Event',
-          start: '2015-02-16T16:00:00'
-        },
-        {
-          title: 'Conference',
-          start: '2015-02-11',
-          end: '2015-02-13'
-        },
-        {
-          title: 'Meeting',
-          start: '2015-02-12T10:30:00',
-          end: '2015-02-12T12:30:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2015-02-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2015-02-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-          start: '2015-02-12T17:30:00'
-        },
-        {
-          title: '🌓 Dinner',
-          start: '2015-11-30',
-           description: 'long description sasasasa sasa sasa sasa sasa sasas asa sasas asas as asa sas ',
-        },
-        {
-          title: 'Birthday Party',
-          start: '2015-02-13T07:00:00'
-        },
-        {
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2015-02-28'
-        }
-      ]
-
-          $scope.eventSources = [];
-          $scope.eventSources.push(events)
+            $scope.eventSources = [];
+            $scope.eventSources.push(events)
             $scope.calOptions = {
               editable: true,
               lang:'hi',
-             height: ($(window).height()) - ($('#calendar').fullCalendar('option', 'height', 1000)),
+              height: ($(window).height()) - ($('#calendar').fullCalendar('option', 'height', 1000)),
               editable : true,
               header : {
-               left: 'prev',
-            center: 'title,today',
-            right: 'next'
+              left: 'prev',
+              center: 'title,today',
+              right: 'next'
               },
-              eventClick: function(calEvent, jsEvent, view){
-              //  eventModal();
-                var a=calEvent.description;
-                var b=calEvent.title;
-                alert('Event: ' +a );
+              eventClick: function(calEvent, jsEvent, view){  
+                $(this).css('border-color', 'red');
+                var selectedDate=calEvent.start.format('Do MMMM YYYY,dddd');
+                var eventTitle=calEvent.title;
+                var description=calEvent.description;
+                //alert(selectedDate);
+                //alert('Event: ' +a );
+                   $scope.safeApply(function()
+                   {
+                   // alert('Event: ' + calEvent.description);
+                     $scope.eventModal(selectedDate,eventTitle,description)
+                   });
+                 },
+               };
 
-    $scope.safeApply(function(){
- alert('Event: ' + calEvent.description);
-      $scope.eventModal(a,b)
-    });
-  
-        //function(calEvent, jsEvent, view) {
-
-        // alert('Event: ' + calEvent.description);
-        // alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-        // alert('View: ' + view.name);
-
-        // change the border color just for fun
-  //      $(this).css('border-color', 'red');
-
-    },
-
-             
-
-            };
-
- $scope.eventModal=function(a,b){
- alert(b);
- $scope.eventModal.show();
-}
-  $ionicModal.fromTemplateUrl('modal.html', function($ionicModal) {
-        $scope.eventModal = $ionicModal;
-    },{
-        // Use our scope for the scope of the modal to keep it simple
+        $ionicModal.fromTemplateUrl('event-modal.html', function(modal) {
+        $scope.eventsModal = modal;
+        },{
         scope: $scope,
-        // The animation we want to use for the modal entrance
         animation: 'slide-in-up'
-    });  
+        });  
+
+ $scope.eventModal=function(selectedDate,eventTitle,description){
+ //alert(eventTitle);
+ $scope.modalData = { "selectedDate" : selectedDate,
+                      "eventTitle" : eventTitle,
+                      "description" : description
+                    };
+ $scope.eventsModal.show();
+}
+ $scope.closeModal=function() {
+  $scope.eventsModal.hide();
+}
 $scope.safeApply = function(fn) {
   var phase = this.$root.$$phase;
   if(phase == '$apply' || phase == '$digest') {
