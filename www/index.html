@@ -105,16 +105,15 @@
         alert("here");
 <div class="modal">
 <ion-header-bar class="bar-stable">
-<h1 class="title">{{modalData.selectedDate}}</h1>
+<h1 class="title"><b>{{modalData.selectedDate}}</b></h1>
 <button class="button button-clear button-positive" ng-click="closeModal()">Done
 </button>
 </ion-header-bar>
 <ion-content>
-<center>
- <h1>{{modalData.eventTitle}}</h1></center>
- <br />
- <h3 style="margin-left:20px;margin-right:20px">
-{{modalData.description}}
+<h1>
+ <div ng-bind-html="modalData.eventTitle | sanitize">HERE:</div></h1>
+ <h3 style="margin-left:10px;margin-right:10px">
+ <div ng-bind-html="modalData.description | sanitize">HERE:</div>
  </h3>
 </ion-content>
 </div>

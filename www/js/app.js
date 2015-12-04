@@ -1,5 +1,9 @@
-angular.module('ionicApp', ['ionic','ui.calendar','ionic-material', 'ionMdInput'])
-
+angular.module('ionicApp', ['ionic','ui.calendar','ionic-material', 'ionMdInput','ngSanitize'])
+ .filter("sanitize", ['$sce', function($sce) {
+        return function(htmlCode){
+            return $sce.trustAsHtml(htmlCode);
+        }
+}])
 .config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
@@ -117,7 +121,7 @@ angular.module('ionicApp', ['ionic','ui.calendar','ionic-material', 'ionMdInput'
         }
     }
 })
-.controller('CalTabCtrl', function($scope ,$ionicModal, $ionicPopup) {
+.controller('CalTabCtrl', function($scope ,$ionicModal, $ionicPopup,$sce) {
             $scope.eventSources = [];
             $scope.eventSources.push(events)
             $scope.calOptions = {
@@ -143,13 +147,16 @@ angular.module('ionicApp', ['ionic','ui.calendar','ionic-material', 'ionMdInput'
                      $scope.eventModal(selectedDate,eventTitle,description)
                    });
                  },
+                 eventRender: function (event, element) {
+                 element.find('span.fc-title').html(element.find('span.fc-title').text());
+                 }
                };
 
         $ionicModal.fromTemplateUrl('event-modal.html', function(modal) {
         $scope.eventsModal = modal;
         },{
         scope: $scope,
-        animation: 'slide-in-up'
+        animation: 'slide-in-left'
         });  
 
  $scope.eventModal=function(selectedDate,eventTitle,description){
@@ -158,6 +165,12 @@ angular.module('ionicApp', ['ionic','ui.calendar','ionic-material', 'ionMdInput'
                       "eventTitle" : eventTitle,
                       "description" : description
                     };
+                    $scope.modalDat="<center style='color:red'>AJIT/Swati</center>"
+                     $scope.deliberatelyTrustDangerousSnippet = function() {
+               var k= $sce.trustAsHtml($scope.modalData);
+               alert(k);
+               return k;
+             };
  $scope.eventsModal.show();
 }
  $scope.closeModal=function() {
@@ -172,7 +185,14 @@ $scope.safeApply = function(fn) {
   } else {
     this.$apply(fn);
   }
-};       
+}; 
+  $scope.snippet =
+               '<p style="color:blue">an html\n' +
+               '<em onmouseover="this.textContent=\'PWN3D!\'">click here</em>\n' +
+               'snippet</p>';
+             $scope.deliberatelyTrustDangerousSnippet = function() {
+               return $sce.trustAsHtml($scope.snippet);
+             };
 }); 
 
 
