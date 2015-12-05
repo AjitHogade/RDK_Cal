@@ -156,7 +156,7 @@ angular.module('ionicApp', ['ionic','ui.calendar','ionic-material', 'ionMdInput'
         $scope.eventsModal = modal;
         },{
         scope: $scope,
-        animation: 'slide-in-left'
+        animation: 'slide-in-up'
         });  
 
  $scope.eventModal=function(selectedDate,eventTitle,description){

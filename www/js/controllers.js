@@ -12,9 +12,9 @@ angular.module('ionicApp.controllers', [])
           start: '2015-11-13T07:00:00'
         },
         {
-          title: '🚩 मकर-संक्रांत',
+          title: '<i class="fa fa-flag fa-lg" style="color:red"></i> मकर-संक्रांत',
           start: '2015-11-30',
-          description: 'long description<b style="color:red">sasasasa sasa </b><br>sasa sasa sasa sasas asa sasas asas as asa sas ',
+          description: '<i class="fa fa-flag" style="color:red"></i>long description<b style="color:red">sasasasa sasa </b><br>sasa sasa sasa sasas asa sasas asas as asa sas ',
         },
       //-------------YEAR 2016--------//
       //--------------JANUARY16----------
