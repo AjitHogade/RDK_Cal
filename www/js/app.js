@@ -1,4 +1,5 @@
-angular.module('ionicApp', ['ionic','ui.calendar','ionic-material', 'ionMdInput','ngSanitize'])
+angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
+
  .filter("sanitize", ['$sce', function($sce) {
         return function(htmlCode){
             return $sce.trustAsHtml(htmlCode);
@@ -57,7 +58,7 @@ angular.module('ionicApp', ['ionic','ui.calendar','ionic-material', 'ionMdInput'
       url: "/calendar",
       views: {
         'calendar-tab': {
-          templateUrl: "templates/calendar.html",
+          templateUrl: "calendar.html",
           controller: 'CalTabCtrl'
         }
       }
@@ -149,14 +150,18 @@ angular.module('ionicApp', ['ionic','ui.calendar','ionic-material', 'ionMdInput'
                  },
                  eventRender: function (event, element) {
                  element.find('span.fc-title').html(element.find('span.fc-title').text());
+                  if (event.imageurl) {
+        eventElement.find("div.fc-content").prepend("<img src='" + event.imageurl +"' width='12' height='12'>");
+    }
                  }
+
                };
 
         $ionicModal.fromTemplateUrl('event-modal.html', function(modal) {
         $scope.eventsModal = modal;
         },{
         scope: $scope,
-        animation: 'slide-in-up'
+        animation: 'slide-in-left'
         });  
 
  $scope.eventModal=function(selectedDate,eventTitle,description){

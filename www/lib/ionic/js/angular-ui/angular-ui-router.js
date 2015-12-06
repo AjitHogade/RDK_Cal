@@ -2832,6 +2832,7 @@ function stateContext(el) {
  * @requires ui.router.state.$state
  * @requires $timeout
  *
+ 
  * @restrict A
  *
  * @description

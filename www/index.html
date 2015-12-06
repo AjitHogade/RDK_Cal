@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
-    <link href="lib/ionic-material/ion-md-input.css" rel="stylesheet">
-        <link href="lib/ionic-material/ionic.material.min.css" rel="stylesheet">
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-        <link href="css/fullcalendar.css" rel="stylesheet">
-         <link href="css/bootstrap_cal1.css" rel="stylesheet">
-         <link rel="stylesheet" href="lib/font-awesome-4.3.0/css/font-awesome.min.css">
+    <link href="css/fullcalendar.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/font-awesome-4.3.0/css/font-awesome.min.css">
+    
+    <!-- Java Script -->
+    <!-- cordova script (this will be a 404 during development) -->   
+    <script src="cordova.js"></script>
+    <!-- your app's js -->  
+    <script src="js/jquery.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic/js/angular-ui/angular-ui-router.js"></script>
+        <script type="text/javascript" src="lib/angular-resource/angular-resource.min.js"></script>
 
+    <script src="js/fullcalendar.js"></script>
+    <script src="language/hi.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/calendar.js"></script>  
+    <script src="js/app.js"></script>
 
-
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-
-    <!-- ionic/angularjs js -->
-
-
-
-
-
-    </head>
+</head>
 
 
   <body ng-app="ionicApp">
@@ -103,8 +104,23 @@
           </ion-side-menu>
          -->  
         </ion-side-menus>
+        <script id="calendar.html" type="text/ng-template">
+<!--  <ion-view title='<img class="title-image" src="img/dada.jpg" /> रसाळ दिनदर्शिका <img class="title-image" src="img/dada.jpg"  />'> -->
+<ion-view title="卐 रसाळ दिनदर्शिका 卐">
+        <ion-content >
+        <div ng-controller='CalTabCtrl'>
+          <br>
+          <div class="calendar" id="calendar" ng-model="eventSources" ui-calendar="calOptions"></div>
+      </div>
+   
+        </ion-content>
+        
+
+      </ion-view>
+
+</script>
+
         <script id="event-modal.html" type="text/ng-template">
-        alert("here");
 <div class="modal">
 <ion-header-bar class="bar-stable">
 <h1 class="title"><b>{{modalData.selectedDate}}</b></h1>
@@ -121,30 +137,7 @@
 </div>
 </script>
      
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
 
-    <!-- your app's js -->
-  
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-ui.custom.min.js"></script>
-                <script src="js/moment.min.js"></script>
-
-        <script src="js/fullcalendar.js">
-
-        </script>
-        <script src="language/hi.js">
-
-        </script>
-
-
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-<script src="lib/ionic-material/ionic.material.js"></script>
-<script src="lib/ionic-material/ion-md-input.js"></script>
-
-    <script src="js/controllers.js"></script>
-    <script src="js/calendar.js"></script>  
-    <script src="js/app.js"></script>
   </body>
 
 </html>
