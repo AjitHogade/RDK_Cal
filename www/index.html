@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
-    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/fullcalendar.css" rel="stylesheet">
+    <link href="css/fullcalendar.min.css" rel="stylesheet">
     <link rel="stylesheet" href="lib/font-awesome-4.3.0/css/font-awesome.min.css">
     
     <!-- Java Script -->
@@ -14,113 +14,37 @@
     <script src="cordova.js"></script>
     <!-- your app's js -->  
     <script src="js/jquery.min.js"></script>
-    <script src="js/moment.min.js"></script>
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="lib/ionic/js/angular-ui/angular-ui-router.js"></script>
-        <script type="text/javascript" src="lib/angular-resource/angular-resource.min.js"></script>
-
-    <script src="js/fullcalendar.js"></script>
+    <script src="js/moment/moment.min.js"></script>
+<!--    <script src="js/moment/locale/hi.js"></script>-->
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+  
+    <script src="js/fullcalendar.min.js"></script>
     <script src="language/hi.js"></script>
-    <script src="js/controllers.js"></script>
-    <script src="js/calendar.js"></script>  
+    <script src="js/calendar.min.js"></script>  
     <script src="js/app.js"></script>
 
 </head>
-
-
   <body ng-app="ionicApp">
-    
-    
-      <ion-side-menus>
-          
-          <ion-side-menu-content ng-controller="NavCtrl">
-            <ion-nav-bar class="bar-positive">
-              <ion-nav-back-button class="button-icon ion-arrow-left-c">
-              </ion-nav-back-button>
-            </ion-nav-bar>
-            <ion-nav-buttons side="left">
-              <button class="button button-icon button-clear ion-navicon" ng-click="showMenu()">
-              </button>
-            </ion-nav-buttons>
+
+    <!--HEADER  -->
+    <ion-nav-bar class="bar-positive">
+        <!-- <ion-nav-back-button class="button-icon ion-arrow-left-c">
+        </ion-nav-back-button> -->
+    </ion-nav-bar>
+    <ion-nav-buttons side="left">
+     <button class="button button-icon button-clear ion-navicon" ng-click="showMenu()">
+     </button>
+    </ion-nav-buttons>
            <!--  
-            <ion-nav-buttons side="right">
+              <ion-nav-buttons side="right">
               <button class="button button-icon button-clear ion-ios7-gear" ng-click="showRightMenu()">
               </button>
-            </ion-nav-buttons>
- -->            <ion-nav-view animation="slide-left-right"></ion-nav-view>
-          </ion-side-menu-content> 
-          
-          <ion-side-menu side="left">
-            <ion-header-bar class="bar bar-header bar-assertive">
-              <h1 class="title"><i class="fa fa-flag"></i></h1>
-            </ion-header-bar>
-            <ion-content has-header="true">
-              <ul class="list animate-fade-slide-in-right">
-                <li > <a class="item item-icon-left" href="#/tab/home">
-    <i class="icon ion-home"></i>
-    होम⁠⁠⁠⁠
-  </a>
-                </li>
-                <li>
-                  <a class="item item-icon-left" menu-close href="#/tab/facts"><i class="icon ion-person-stalker"></i>चरित्र</a>
-                </li>
+              </ion-nav-buttons>-->
+   <ion-nav-view animation="slide-left-right"></ion-nav-view>
+                  
 
-                <li>
-                  <a class="item item-icon-left" menu-close href="#/tab/facts2">
-                    <i class="icon ion-videocamera"></i>कार्यक्रम</a>
-                </li>
-             <li>
-                  <a class="item item-icon-left" menu-close nav-clear href="#/tab/home">
-                    <i class="icon ion-clipboard"></i>ग्रंथभंडार</a>
-                </li>
-                <li>
-                  <a class="item item-icon-left" menu-close href="#/tab/facts">
-                    <i class="icon ion-social-usd"></i>देणगी</a>
-                </li>
-
-                <li>
-                  <a class="item item-icon-left" menu-close href="#/tab/facts2">
-                    <i class="icon ion-android-call"></i>संपर्क</a>
-                </li>
-    
-              </ul>
-            </ion-content>
-          </ion-side-menu>
-        <!-- 
-          <ion-side-menu side="right">
-            <ion-header-bar class="bar bar-header bar-dark">
-              <h1 class="title">Right Menu</h1>
-            </ion-header-bar>
-            <ion-content>
-              <ul class="list">
-                <li>
-                  <a class="item" menu-close nav-clear href="#/search">Search</a>
-                </li>
-                <li>
-                  <a class="item" menu-close nav-clear href="#/settings">Settings</a>
-                </li>
-              </ul>
-            </ion-content>
-          </ion-side-menu>
-         -->  
-        </ion-side-menus>
-        <script id="calendar.html" type="text/ng-template">
-<!--  <ion-view title='<img class="title-image" src="img/dada.jpg" /> रसाळ दिनदर्शिका <img class="title-image" src="img/dada.jpg"  />'> -->
-<ion-view title="卐 रसाळ दिनदर्शिका 卐">
-        <ion-content >
-        <div ng-controller='CalTabCtrl'>
-          <br>
-          <div class="calendar" id="calendar" ng-model="eventSources" ui-calendar="calOptions"></div>
-      </div>
-   
-        </ion-content>
-        
-
-      </ion-view>
-
-</script>
-
-        <script id="event-modal.html" type="text/ng-template">
+        <!-- Event Click MODAL -->
+<script id="event-modal.html" type="text/ng-template">
 <div class="modal">
 <ion-header-bar class="bar-stable">
 <h1 class="title"><b>{{modalData.selectedDate}}</b></h1>
@@ -129,14 +53,16 @@
 </ion-header-bar>
 <ion-content>
 <h1>
- <div ng-bind-html="modalData.eventTitle | sanitize">HERE:</div></h1>
+ <div ng-bind-html="modalData.eventTitle | sanitize"></div></h1>
  <h3 style="margin-left:10px;margin-right:10px">
- <div ng-bind-html="modalData.description | sanitize">HERE:</div>
+ <div ng-bind-html="modalData.description | sanitize"></div>
  </h3>
 </ion-content>
 </div>
 </script>
      
+
+<script src="js/controllers.js"></script>
 
   </body>
 

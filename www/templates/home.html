@@ -1,9 +1,19 @@
 <!--      <ion-view title='<img class="title-image" src="img/dada.jpg" /> रसाळ दिनदर्शिका <img class="title-image" src="img/dada.jpg"  />'>
- -->      <ion-view title="रसाळ दिनदर्शिका">
+ -->     
+
+  <ion-view title="卐 रसाळ दिनदर्शिका 卐">
    <ion-content>
-   <br />
-       <div style="width:50%;background-color:yellow">
-<img src="img/home-page-image.jpg" style="width:100%"/>
+       <div>
+<img class="home_img" src="img/loadImg/intro-sampraday_1	.jpg" style="width:100%"/>
         </div>
         </ion-content>
       </ion-view>
+      <script type="text/javascript">
+ function set_body_height() { // set body height = window height
+    $('img').height($(window).height()-50);
+  }
+  $(document).ready(function() {
+    $(window).bind('resize', set_body_height);
+    set_body_height();
+  });
+</script>

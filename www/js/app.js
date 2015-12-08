@@ -4,24 +4,69 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
         return function(htmlCode){
             return $sce.trustAsHtml(htmlCode);
         }
-}])
+  }])
+
 .config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
-    .state('search', {
-      url: '/search',
-      templateUrl: 'templates/search.html'
+    
+    .state('menu', {
+      url: "",
+      abstract: true,
+      templateUrl: "templates/menu.html"
     })
-    .state('settings', {
-      url: '/settings',
-      templateUrl: 'templates/settings.html'
-    })
-    .state('tabs', {
+
+    .state('menu.tabs', {
       url: "/tab",
       abstract: true,
       templateUrl: "templates/tabs.html"
     })
-    .state('tabs.home', {
+    
+    .state('menu.tabs.charitra', {
+      url: '/charitra',
+      views: {
+      'home-tab': {
+        templateUrl: 'templates/charitra.html'
+      }
+    }
+    })
+         
+    .state('menu.tabs.karyakram', {
+      url: '/karyakram',
+      views: {
+      'home-tab': {
+        templateUrl: 'templates/karyakram.html'
+      }
+    }
+    })
+
+   .state('menu.tabs.granthbhandar', {
+     url: '/granthbhandar',
+     views: {
+      'home-tab': {
+        templateUrl: 'templates/granthbhandar.html'
+      }
+    }
+    })
+
+   .state('menu.tabs.dengi', {
+    url: '/dengi',
+    views: {
+      'home-tab': {
+        templateUrl: 'templates/dengi.html'
+      }
+    }
+    })
+   .state('menu.tabs.sampark', {
+     url: '/sampark',
+     views: {
+      'home-tab': {
+        templateUrl: 'templates/sampark.html'
+      }
+    }
+    })
+
+    .state('menu.tabs.home', {
       url: "/home",
       views: {
         'home-tab': {
@@ -30,75 +75,34 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
         }
       }
     })
-    .state('tabs.facts', {
-      url: "/facts",
-      views: {
-        'home-tab': {
-          templateUrl: "ftemplates/acts.html"
-        }
-      }
-    })
-    .state('tabs.facts2', {
-      url: "/facts2",
-      views: {
-        'home-tab': {
-          templateUrl: "templates/facts2.html"
-        }
-      }
-    })
-    .state('tabs.about', {
-      url: "/about",
-      views: {
-        'about-tab': {
-          templateUrl: "templates/about.html"
-        }
-      }
-    })
-    .state('tabs.calendar', {
+
+    .state('menu.tabs.calendar', {
       url: "/calendar",
       views: {
         'calendar-tab': {
-          templateUrl: "calendar.html",
+          templateUrl: "templates/calendar.html",
           controller: 'CalTabCtrl'
         }
       }
     })
-    .state('tabs.navstack', {
-      url: "/navstack",
-      views: {
-        'about-tab': {
-          templateUrl: "templates/nav-stack.html"
-        }
-      }
-    })
-     .state('tabs.gallery', {
+    .state('menu.tabs.gallery', {
       url: "/gallery",
       views: {
         'gallery-tab': {
           templateUrl: "templates/gallery.html"
         }
       }
-      })
-     .state('tabs.info', {
-        url: '/info',
-        views: {
-            'menuContent': {
-                templateUrl: 'templates/info.html',
-                controller: 'InfoCtrl'
-            },
-            'fabContent': {
-                template: '<button id="fab-friends" class="button button-fab button-fab-top-left expanded button-energized-900 spin"><i class="icon ion-chatbubbles"></i></button>',
-                controller: function ($timeout) {
-                    $timeout(function () {
-                        document.getElementById('fab-friends').classList.toggle('on');
-                    }, 900);
-                }
-            }
-        }
     })
+    .state('menu.tabs.info', {
+      url: '/info',
+      views: {
+        'menuContent': {
+            templateUrl: 'templates/info.html',
+            controller: 'InfoCtrl'
+          },     
+        }
+     })
    
-
-
    $urlRouterProvider.otherwise("/tab/home");
 
 })
@@ -118,7 +122,7 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
     $scope.images = []; 
     $scope.loadImages = function() {
         for(var i = 0; i < 100; i++) {
-            $scope.images.push({id: i, src: "http://placehold.it/50x50"});
+            $scope.images.push({id: i, src: "/img"});
         }
     }
 })
@@ -129,14 +133,12 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
               editable: true,
               lang:'hi',
               height: ($(window).height()) - ($('#calendar').fullCalendar('option', 'height', 1000)),
-              editable : true,
               header : {
               left: 'prev',
               center: 'title,today',
               right: 'next'
               },
               eventClick: function(calEvent, jsEvent, view){  
-                $(this).css('border-color', 'red');
                 var selectedDate=calEvent.start.format('Do MMMM YYYY,dddd');
                 var eventTitle=calEvent.title;
                 var description=calEvent.description;
@@ -161,7 +163,7 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
         $scope.eventsModal = modal;
         },{
         scope: $scope,
-        animation: 'slide-in-left'
+        animation: 'slide-in-up'
         });  
 
  $scope.eventModal=function(selectedDate,eventTitle,description){
@@ -170,17 +172,17 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
                       "eventTitle" : eventTitle,
                       "description" : description
                     };
-                    $scope.modalDat="<center style='color:red'>AJIT/Swati</center>"
                      $scope.deliberatelyTrustDangerousSnippet = function() {
-               var k= $sce.trustAsHtml($scope.modalData);
-               alert(k);
-               return k;
+               var eventData= $sce.trustAsHtml($scope.modalData);
+        
+               return eventData;
              };
  $scope.eventsModal.show();
 }
  $scope.closeModal=function() {
   $scope.eventsModal.hide();
 }
+
 $scope.safeApply = function(fn) {
   var phase = this.$root.$$phase;
   if(phase == '$apply' || phase == '$digest') {
@@ -191,13 +193,6 @@ $scope.safeApply = function(fn) {
     this.$apply(fn);
   }
 }; 
-  $scope.snippet =
-               '<p style="color:blue">an html\n' +
-               '<em onmouseover="this.textContent=\'PWN3D!\'">click here</em>\n' +
-               'snippet</p>';
-             $scope.deliberatelyTrustDangerousSnippet = function() {
-               return $sce.trustAsHtml($scope.snippet);
-             };
 }); 
 
 

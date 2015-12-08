@@ -1,36 +1,71 @@
-  <ion-side-menus enable-menu-with-back-views="false">
-    <ion-side-menu-content>
-      <ion-nav-bar class="bar-stable">
-        <ion-nav-back-button>
-        </ion-nav-back-button>
+<ion-side-menus>
+          <ion-side-menu-content ng-controller="NavCtrl">
+            <ion-nav-bar class="bar-positive">
+              <!-- <ion-nav-back-button class="button-icon ion-arrow-left-c">
+              </ion-nav-back-button> -->
+            </ion-nav-bar>
+            <ion-nav-buttons side="left">
+              <button class="button button-icon button-clear ion-navicon" ng-click="showMenu()">
+              </button>
+            </ion-nav-buttons>
+           <!--  
+            <ion-nav-buttons side="right">
+              <button class="button button-icon button-clear ion-ios7-gear" ng-click="showRightMenu()">
+              </button>
+            </ion-nav-buttons>
+ -->            <ion-nav-view animation="slide-left-right"></ion-nav-view>
+          </ion-side-menu-content> 
+          
+          <ion-side-menu side="left">
+            <ion-header-bar class="bar bar-header bar-assertive">
+              <h1 class="title"><i class="fa fa-flag"></i></h1>
+            </ion-header-bar>
+            <ion-content has-header="true">
+              <ul class="list">
+                   <li> <a class="item item-icon-left" menu-close href="#/tab/home">
+    <i class="icon ion-home"></i>
+होम⁠⁠⁠⁠  </a>
+                </li>
+               <li>
+                  <a  class="item item-icon-left" menu-close href="#/tab/charitra">
+                    <i class="icon ion-person-stalker"></i>चरित्र</a>
+                </li>
 
-        <ion-nav-buttons side="left">
-          <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-          </button>
-        </ion-nav-buttons>
-      </ion-nav-bar>
-      <ion-nav-view name="menuContent"></ion-nav-view>
-    </ion-side-menu-content>
+                <li>
+                  <a class="item item-icon-left" menu-close href="#/tab/karyakram">
+                    <i class="icon ion-videocamera"></i>कार्यक्रम</a>
+                </li>
+             <li>
+                  <a class="item item-icon-left" menu-close href="#/tab/granthbhandar">
+                    <i class="icon ion-clipboard"></i>ग्रंथभंडार</a>
+                </li>
+                <li>
+                  <a class="item item-icon-left" menu-close href="#/tab/dengi">
+                    <i class="icon ion-social-usd"></i>देणगी</a>
+                </li>
 
-    <ion-side-menu side="left">
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Left</h1>
-      </ion-header-bar>
-      <ion-content>
-        <ion-list>
-          <ion-item menu-close ng-click="login()">
-            Login
-          </ion-item>
-          <ion-item menu-close href="#/app/search">
-            Search
-          </ion-item>
-          <ion-item menu-close href="#/app/browse">
-            Browse
-          </ion-item>
-          <ion-item menu-close href="#/app/playlists">
-            Playlists
-          </ion-item>
-        </ion-list>
-      </ion-content>
-    </ion-side-menu>
-  </ion-side-menus>
+                <li>
+                  <a class="item item-icon-left" menu-close href="#/tab/sampark">
+                    <i class="icon ion-android-call"></i>संपर्क</a>
+                </li>
+              </ul>
+            </ion-content>
+          </ion-side-menu>
+        <!-- 
+          <ion-side-menu side="right">
+            <ion-header-bar class="bar bar-header bar-dark">
+              <h1 class="title">Right Menu</h1>
+            </ion-header-bar>
+            <ion-content>
+              <ul class="list">
+                <li>
+                  <a class="item" menu-close nav-clear href="#/search">Search</a>
+                </li>
+                <li>
+                  <a class="item" menu-close nav-clear href="#/settings">Settings</a>
+                </li>
+              </ul>
+            </ion-content>
+          </ion-side-menu>
+         -->  
+        </ion-side-menus>
