@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.sidemenu777601" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>side_Menu</name>
+  <name>रसाळ दिनदर्शिका</name>
   <description>
-        An Ionic Framework and Cordova project.
-    </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+        Rasal Calendar app for rasal community and can be used as a normal calendar too in marathi.
+            </description>
+  <author email="aju.260890@gmail.com" href="">
+      Ajit Vijay Hogade
     </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -17,5 +17,20 @@
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
+  <preference name="SplashScreen" value="screen"/>
+<preference name="SplashScreenDelay" value="10000"/>
+<platform name="android">
+  <icon src="res/android/icons/icon.png"/>
+
+  <!-- you can use any density that exists in the Android project -->
+  <splash src="res/android/android-splash-land-hdpi.png" density="land-hdpi"/>
+  <splash src="res/android/android-splash-land-ldpi.png" density="land-ldpi"/>
+  <splash src="res/android/android-splash-land-mdpi.png" density="land-mdpi"/>
+  <splash src="res/android/android-splash-land-xhdpi.png" density="land-xhdpi"/>
+
+  <splash src="res/android/splash/android-splash-port-hdpi.png" density="port-hdpi"/>
+  <splash src="res/android/splash/android-splash-port-ldpi.png" density="port-ldpi"/>
+  <splash src="res/android/splash/android-splash-port-mdpi.png" density="port-mdpi"/>
+  <splash src="res/android/splash/android-splash-port-xhdpi.png" density="port-xhdpi"/>
+</platform>
 </widget>
-Status 

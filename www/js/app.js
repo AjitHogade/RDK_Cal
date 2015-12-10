@@ -150,12 +150,26 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
                      $scope.eventModal(selectedDate,eventTitle,description)
                    });
                  },
+
                  eventRender: function (event, element) {
                  element.find('span.fc-title').html(element.find('span.fc-title').text());
                   if (event.imageurl) {
         eventElement.find("div.fc-content").prepend("<img src='" + event.imageurl +"' width='12' height='12'>");
     }
-                 }
+             eventElement.find("div.fc-event").parents('div..fc td').css('background-image','red')
+                 },
+                     dayClick: function(date, jsEvent, view) {
+
+        alert('Clicked on: ' + date.format());
+
+        alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+
+        alert('Current view: ' + view.name);
+
+        // change the day's background color just for fun
+        $(this).css('background-color', 'red');
+
+    }
 
                };
 

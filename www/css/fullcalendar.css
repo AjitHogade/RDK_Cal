@@ -416,6 +416,7 @@ td.fc-today {
 	 font-weight: bold;
 	 color: #b30000;
 	 font-size: 22px;
+	 background-color: red;
 
 }
 .fc td.fc-sun {
@@ -565,7 +566,13 @@ temporary rendered events).
 	z-index: 3;
 }
 
-
+  .highPriority,
+  .highPriority div,
+  .highPriority span {
+    background-color: red; /* background color */
+    border-color: white;     /* border color */
+    color: white;           /* text color */
+  }
 /* Horizontal Events
 --------------------------------------------------------------------------------------------------*/
 
@@ -764,6 +771,7 @@ a.fc-more:hover {
 .fc-view > table { /* so dragged elements can be above the view's main element */
 	position: relative;
 	z-index: 1;
+	background-color: none;
 }
 
 /* BasicView
@@ -780,6 +788,9 @@ a.fc-more:hover {
 
 .fc-basic-view .fc-body .fc-row {
 	min-height: 4em; /* ensure that all rows are at least this tall */
+		background-color: white;
+		border:white solid 1px;
+
 }
 
 /* a "rigid" row will take up a constant amount of height because content-skeleton is absolute */
@@ -800,6 +811,7 @@ a.fc-more:hover {
 .fc-basic-view .fc-week-number,
 .fc-basic-view .fc-day-number {
 	padding: 0 2px;
+	color: blue;
 }
 
 .fc-basic-view td.fc-week-number span,
@@ -1082,4 +1094,40 @@ be a descendant of the grid when it is being dragged.
 
 .fc-time-grid-event .fc-resizer:after {
 	content: "=";
+}
+
+/* Custom css events */
+
+.publicHoliday{
+	background-color: red;
+}
+
+.allDetail
+{
+	color: red;
+border: 1px solid black;
+margin-left: 5%;
+width:90%;
+padding-left: 15px;
+padding-top: 15px;
+padding-right: 15px;
+padding-bottom: 15px;
+border-radius:20px;
+
+}
+.mainEvent{
+	color:red;
+	text-align: center;
+
+}
+.close{
+	background-color: red;
+	color: white;
+	text-align: center;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 15px;
+	font-weight: bold;
 }
