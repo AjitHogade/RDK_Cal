@@ -36,34 +36,34 @@ var events=[
         description:'<center><h2><i class="fa fa-flag fa-4x" style="color:red"></i> सफला स्मार्त एकादशी</h2></center><div class="allDetail">मार्गशीर्ष कृ.११<br>विशाखा.अहोरात्र </div>',
      },
     {
-	title:"Birthday Party",
+    title:'<i class="fa fa-flag fa-2x" style="color:red"></i> <br>भागवत एकादशी',
 	start:"2016-01-06",
-	imageurl:"img/dada.png"
+    description:'<center><h2><i class="fa fa-flag fa-4x" style="color:red"></i> भागवत एकादशी</h2></center><div class="allDetail">मार्गशीर्ष कृ.१२<br>विशाखा. ०७.२५</div>',
     },
     {
-	title:"Birthday Party",
+	title:"मार्गशीर्ष कृ.१२<br>प्रदोष",
 	start:"2016-01-07",
-	imageurl:"img/dada.png"
+    description:'<center><h2></h2></center><div class="allDetail">मार्गशीर्ष कृ.१२<br>अनुराधा. ०८.५६<br>प्रदोष</div>', 
     },
     {
-	title:"Birthday Party",
+	title:"शिवरात्री<br>मार्गशीर्ष कृ.१३ ",
 	start:"2016-01-08",
-	imageurl:"img/dada.png"
+    description:'<center><h2>शिवरात्री</h2></center><div class="allDetail">मार्गशीर्ष कृ.१३<br> जेष्ठा०९.४७<br>शिवरात्री <br>श्री संत सेवागिरी महाराज <br>पुसेगाव रथ उत्सव </div>', 
     },
     {
-	title:"Birthday Party",
+	title:"<i class='fa fa-circle fa-2x' style='color:black'></i> <br>अमावस्या",
 	start:"2016-01-09",
-	imageurl:"img/dada.png"
+    description:'<center><h2><i class="fa fa-circle fa-2x" style="color:black"></i>अमावस्या</h2></center><div class="allDetail">अमावस्या समाप्ती-सकाळी ०७.००<br>पौष शु.१<br>पूर्वाषाढा.०९.४१<br>पौष मासाआरंभ <br>ठाणे डवले नगर सप्ताह २</div>', 
     },
     {
-	title:"Birthday Party",
+	title:"पौष शु.१<br>पूर्वाषाढा.०९.४१",
 	start:"2016-01-10",
-	imageurl:"img/dada.png"
+    description:'</h2></center><div class="allDetail">मार्गशीर्ष अमावस्या-मूळ.१०.००<br>दर्शवेळा अमावस्या प्रारंभ-सकाळी ०७.५३<br>मार्गशीर्ष कृ.१४<br>पौष मासाआरंभ <br>ठाणे डवले नगर सप्ताह २</div>', 
     },
     {
 	title:"Birthday Party",
 	start:"2016-01-11",
-	imageurl:"img/dada.png"
+    description:'<center><h2>शिवरात्री</h2></center><div class="allDetail">मार्गशीर्ष कृ.१३<br> जेष्ठा०९.४७<br>शिवरात्री <br>श्री संत सेवागिरी महाराज <br>पुसेगाव रथ उत्सव </div>', 
     },
     {
 	title:"Birthday Party",
