@@ -1,19 +1,15 @@
 <!--   <ion-view title='<img class="title-image" src="img/dada.jpg" /> रसाळ दिनदर्शिका <img class="title-image" src="img/dada.jpg"  />'> -->
 <ion-view title="卐 रसाळ दिनदर्शिका 卐">
-        <ion-content ng-controller="ExampleController" ng-init="loadImages()">
-        <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
-        <div class="col col-25" ng-if="$index < images.length">
-            <img ng-src="{{images[$index].src}}" width="100%" />
+        <ion-content drag-content="false">
+       <div class="item item-divider">
+          <i class="ion-images"></i>
+          My Images
         </div>
-        <div class="col col-25" ng-if="$index + 1 < images.length">
-            <img ng-src="{{images[$index + 1].src}}" width="100%" />
-        </div>
-        <div class="col col-25" ng-if="$index + 2 < images.length">
-            <img ng-src="{{images[$index + 2].src}}" width="100%" />
-        </div>
-        <div class="col col-25" ng-if="$index + 3 < images.length">
-            <img ng-src="{{images[$index + 3].src}}" width="100%" />
-        </div>
-    </div>
+
+        <a class="item item-list-detail">
+          <ion-scroll direction="x">
+            <img ng-repeat="image in allImages" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
+          </ion-scroll>
+        </a>
             </ion-content>
       </ion-view>

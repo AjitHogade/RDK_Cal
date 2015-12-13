@@ -89,7 +89,9 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
       url: "/gallery",
       views: {
         'gallery-tab': {
-          templateUrl: "templates/gallery.html"
+          templateUrl: "templates/gallery.html",
+          controller: 'GalleryCtrl'
+
         }
       }
     })
@@ -112,21 +114,17 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
   };
  
 })
-.controller('HomeTabCtrl', function($scope) {
+.controller('HomeTabCtrl', function($scope,$ionicSideMenuDelegate) {
+
 })
 .controller('InfoCtrl', function($scope, $stateParams, $timeout) {
-   
+         $ionicSideMenuDelegate.canDragContent(true);
+
 })
 
-.controller("ExampleController", function($scope) {
-    $scope.images = []; 
-    $scope.loadImages = function() {
-        for(var i = 0; i < 100; i++) {
-            $scope.images.push({id: i, src: "/img"});
-        }
-    }
-})
-.controller('CalTabCtrl', function($scope ,$ionicModal, $ionicPopup,$sce) {
+.controller('CalTabCtrl', function($scope ,$ionicSideMenuDelegate,$ionicModal, $ionicPopup,$sce) {
+      $ionicSideMenuDelegate.canDragContent(true);
+
             $scope.eventSources = [];
             $scope.eventSources.push(events)
             $scope.calOptions = {
@@ -207,6 +205,47 @@ $scope.safeApply = function(fn) {
     this.$apply(fn);
   }
 }; 
-}); 
+})
+.controller('GalleryCtrl', function($scope,  $ionicSideMenuDelegate,$ionicBackdrop, $ionicModal, $ionicSlideBoxDelegate, $ionicScrollDelegate) {
+
+    $ionicSideMenuDelegate.canDragContent(false)
+  $scope.allImages = [{
+    src: 'img/pic1.jpg'
+  }, {
+    src: 'img/pic2.jpg'
+  }, {
+    src: 'img/pic3.jpg'
+  }];
+
+  $scope.zoomMin = 1;
+
+  $scope.showImages = function(index) {
+    $scope.activeSlide = index;
+    $scope.showModal('templates/gallery-zoomview.html');
+  };
+
+  $scope.showModal = function(templateUrl) {
+    $ionicModal.fromTemplateUrl(templateUrl, {
+      scope: $scope
+    }).then(function(modal) {
+      $scope.modal = modal;
+      $scope.modal.show();
+    });
+  }
+
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+    $scope.modal.remove()
+  };
+
+  $scope.updateSlideStatus = function(slide) {
+    var zoomFactor = $ionicScrollDelegate.$getByHandle('scrollHandle' + slide).getScrollPosition().zoom;
+    if (zoomFactor == $scope.zoomMin) {
+      $ionicSlideBoxDelegate.enableSlide(true);
+    } else {
+      $ionicSlideBoxDelegate.enableSlide(false);
+    }
+  };
+});
 
 
