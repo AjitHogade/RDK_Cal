@@ -11,5 +11,15 @@
             <img ng-repeat="image in allImages" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
           </ion-scroll>
         </a>
+        <div class="item item-divider">
+          <i class="ion-images"></i>
+          My Images
+        </div>
+
+        <a class="item item-list-detail">
+          <ion-scroll direction="x">
+            <img ng-repeat="image in allImages" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
+          </ion-scroll>
+        </a>
             </ion-content>
       </ion-view>

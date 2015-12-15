@@ -209,13 +209,29 @@ $scope.safeApply = function(fn) {
 .controller('GalleryCtrl', function($scope,  $ionicSideMenuDelegate,$ionicBackdrop, $ionicModal, $ionicSlideBoxDelegate, $ionicScrollDelegate) {
 
     $ionicSideMenuDelegate.canDragContent(false)
-  $scope.allImages = [{
-    src: 'img/pic1.jpg'
+  $scope.allImages = [
+  {
+    src: 'img/gallery/alandi_saptah/Image01.jpg'
   }, {
-    src: 'img/pic2.jpg'
+    src: 'img/gallery/alandi_saptah/Image02.jpg'
   }, {
-    src: 'img/pic3.jpg'
-  }];
+    src: 'img/gallery/alandi_saptah/Image03.jpg'
+  }, {
+    src: 'img/gallery/alandi_saptah/Image04.jpg'
+  }, {
+    src: 'img/gallery/alandi_saptah/Image05.jpg'
+  }, {
+    src: 'img/gallery/alandi_saptah/Image06.jpg'
+  }, {
+    src: 'img/gallery/alandi_saptah/Image07.jpg'
+  }, {
+    src: 'img/gallery/alandi_saptah/Image08.jpg'
+  }, {
+    src: 'img/gallery/alandi_saptah/Image09.jpg'
+  }, {
+    src: 'img/gallery/alandi_saptah/Image10.jpg'
+  }
+  ];
 
   $scope.zoomMin = 1;
 
