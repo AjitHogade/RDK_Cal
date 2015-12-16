@@ -52,7 +52,7 @@ var events=[
     {
 	title:"पौष शु.१<br>पूर्वाषाढा.०९.४१",
 	start:"2016-01-10",
-    description:'</h2></center><div class="allDetail">मार्गशीर्ष अमावस्या-मूळ.१०.००<br>दर्शवेळा अमावस्या प्रारंभ-सकाळी ०७.५३<br>मार्गशीर्ष कृ.१४<br>पौष मासाआरंभ <br>ठाणे डवले नगर सप्ताह २</div>', 
+    description:'<center><h2></h2></center><div class="allDetail">मार्गशीर्ष अमावस्या-मूळ.१०.००<br>दर्शवेळा अमावस्या प्रारंभ-सकाळी ०७.५३<br>मार्गशीर्ष कृ.१४<br>पौष मासाआरंभ <br>ठाणे डवले नगर सप्ताह २</div>', 
     },
     {
 	start:"2016-01-11",
@@ -316,5 +316,160 @@ description:"<center><h2></h2></center><div class='allDetail'>माघ कृ. 
 
  //---------------March 2016 ---------------//
 
+{
+title:"कालाष्ठमी<br> माघ कृ. ",
+start:"2016-03-01",
+description:"<center><h2></h2></center><div class='allDetail'>कालाष्ठमी<br>अनुराधा २६.३६<br>माघ कृ. </div>"
+ },
+{
+title:"माघ कृ. ८<br>ज्येष्ठा २८.१९",
+start:"2016-03-02",
+description:"<center><h2></h2></center><div class='allDetail'>माघ कृ. ८<br>ज्येष्ठा २८.१९</div>"
+ },
+{
+title:"img<br>श्री रामदास नवमी ",
+start:"2016-03-03",
+description:"<center><h2>img श्री रामदास नवमी </h2></center><div class='allDetail'>सांगोला दौरा आरंभ <br>मूळ २९.१९<br>माघ कृ. ९</div>"
+ },
+{
+title:"पूर्वाषाढा २९.३१<br>सांगोला दौरा ",
+start:"2016-03-04",
+description:"<center><h2></h2></center><div class='allDetail'>सांगोला दौरा <br>पूर्वाषाढा २९.३१<br>माघ कृ. १०</div>"
+ },
+{
+title:"उत्तराषाढा २८.५७<br>सांगोला दौरा ",
+start:"2016-03-05",
+description:"<center><h2></h2></center><div class='allDetail'>सांगोला दौरा <br>उत्तराषाढा २८.५७<br>माघ कृ. ११</div>"
+ },
+{
+title:"प्रदोष<br>सांगोला दौरा ",
+start:"2016-03-06",
+description:"<center><h2></h2></center><div class='allDetail'>प्रदोष<br>सांगोला दौरा <br>श्रवण २७.४२<br>माघ कृ. १२</div>"
+ },
+{
+title:"img<br>महाशिवरात्री ",
+start:"2016-03-07",
+description:"<center><h2>img महाशिवरात्री </h2></center><div class='allDetail'>सांगोला दौरा <br>धनिष्ठा २५.५२<br>माघ कृ. १३</div>"
+ },
+{
+title:"img<br>अमावस्या ",
+start:"2016-03-08",
+description:"<center><h2>img अमावस्या<br>(प्रारंभ सकाळी १०.३४ - समाप्ती सकाळी ७.२४) </h2></center><div class='allDetail'>जागतिक महिला दिन <br>दर्श अमावस्या <br>सांगोला दौरा <br>शावतारका २३.३५<br>माघ कृ. १४</div>"
+ },
+{
+title:"खग्रास सूर्यग्रहण ग्र. वे. <br>प्र. भाद्रपदा २१.०२",
+start:"2016-03-09",
+description:"<center><h2>खग्रास सूर्यग्रहण ग्र. वे.</h2></center><div class='allDetail'>मंगळवार दि. ७ रात्री ९ पासून ग्रहण सुटेपर्यंत पाळावेत <br>सांगोला दौरा सांगता <br>प्र. भाद्रपदा २१.०२<br>माघ अमावस्या / फाल्गुन शु. १</div>"
+ },
+{
+title:"फाल्गुन शु. २ उ. <br>भाद्रपदा १८.२१",
+start:"2016-03-10",
+description:"<center><h2></h2></center><div class='allDetail'>फाल्गुन शु. २ उ. <br>भाद्रपदा १८.२१</div>"
+ },
+{
+title:"फाल्गुन शु. ३<br>रेवती १५.४२ ",
+start:"2016-03-11",
+description:"<center><h2></h2></center><div class='allDetail'>फाल्गुन शु. ३<br>रेवती १५.४२</div>"
+ },
+{
+title:"img<br>विनायक चतुर्थी",
+start:"2016-03-12",
+description:"<center><h2>img विनायक चतुर्थी </h2></center><div class='allDetail'>फाल्गुन शु. ४<br>अश्विनी १३.१४</div>"
+ },
+{
+title:"फाल्गुन शु. ५<br>भरणी ११.०७",
+start:"2016-03-13",
+description:"<center><h2></h2></center><div class='allDetail'>फाल्गुन शु. ५<br>भरणी ११.०७</div>"
+ },
+{
+title:"img<br>गुरुदेव दादांची शुद्ध षष्ठी ",
+start:"2016-03-14",
+description:"<center><h2>img गुरुदेव दादांची शुद्ध षष्ठी </h2></center><div class='allDetail'>गुरुभक्त श्री जितेंद्र महादेव रांजणे रामचंद्र बळीप प्रसाद <br>कृत्तिका ०९.२६<br>फाल्गुन शु. ६</div>"
+ },
+{
+title:"जागतिक ग्राहक दिन<br>",
+start:"2016-03-15",
+description:"<center><h2>जागतिक ग्राहक दिन</h2></center><div class='allDetail'>रोहिणी ०८.१८<br>फाल्गुन शु. ७</div>"
+ },
+{
+title:"img<br>दुर्गाष्ठमी ",
+start:"2016-03-16",
+description:"<center><h2>img दुर्गाष्ठमी </h2></center><div class='allDetail'>मृगशीर्ष ०७.४६<br>फाल्गुन शु. ८</div>"
+ },
+{
+title:"फाल्गुन शु. ९<br>आर्दा ०७.५१",
+start:"2016-03-17",
+description:"<center><h2></h2></center><div class='allDetail'>फाल्गुन शु. ९<br>आर्दा ०७.५१</div>"
+ },
+{
+title:"फाल्गुन शु. १०<br>पुनर्वसु ०८. ३२",
+start:"2016-03-18",
+description:"<center><h2></h2></center><div class='allDetail'>फाल्गुन शु. १०<br>पुनर्वसु ०८. ३२</div>"
+ },
+{
+title:"img<br>आमलकी एकादशी",
+start:"2016-03-19",
+description:"<center><h2>img आमलकी एकादशी</h2></center><div class='allDetail'>वढाव सप्ताह आरंभ <br>पुष्य ०९. ४८<br>फाल्गुन शु. ११</div>"
+ },
+{
+title:"फाल्गुन शु. १२<br>आश्लेषा ११. ३४",
+start:"2016-03-20",
+description:"<center><h2></h2></center><div class='allDetail'>वढाव सप्ताह २<br>प्रदोष<br>फाल्गुन शु. १२<br>आश्लेषा ११. ३४</div>"
+ },
+{
+title:"फाल्गुन शु. १३<br>मघा १३. ४५",
+start:"2016-03-21",
+description:"<center><h2></h2></center><div class='allDetail'>वढाव सप्ताह ३<br>फाल्गुन शु. १३<br>मघा १३. ४५</div>"
+ },
+{
+title:"img<br>पौर्णिमा प्रारंभ दुपारी ३. १२",
+start:"2016-03-22",
+description:"<center><h2>img पौर्णिमा<br>( प्रारंभ दुपारी ३. १२ -  समाप्ती सायं. ५.३०)</h2></center><div class='allDetail'>वढाव सप्ताह ४<br>फाल्गुन शु. १४<br>पूर्वा १६. १८<br></div>"
+ },
+{
+title:"img<br>होळी हुताशनी पौर्णिमा",
+start:"2016-03-23",
+description:"<center><h2>img होळी हुताशनी पौर्णिमा<br>फाल्गुन पौर्णिमा </h2></center><div class='allDetail'>वढाव सप्ताह ५<br>जागतिक हवामान दिन<br>उत्तरा १९.०६</div>"
+ },
+{
+title:"img<br>धुलीवंदन ",
+start:"2016-03-24",
+description:"<center><h2>img धुलीवंदन</h2></center><div class='allDetail'>वढाव सप्ताह ६<br>फाल्गुन १ <br>हस्त २२. ०५</div>"
+ },
+{
+title:"तुकाराम बीज <br>वढाव सप्ताह काला",
+start:"2016-03-25",
+description:"<center><h2>तुकाराम बीज</h2></center><div class='allDetail'>वढाव सप्ताह काला<br>गुड फ्रायडे <br>फाल्गुन कृ. २<br>चित्रा २५.०९</div>"
+ },
+{
+title:"img<br>छत्रपती शिवाजी महाराज जयंती ",
+start:"2016-03-26",
+description:"<center><h2>img छत्रपती शिवाजी महाराज जयंती</h2></center><div class='allDetail'>फाल्गुन कृ.३<br>स्वाती २८.११</div>"
+ },
+{
+title:"img<br>संकष्ट चतुर्थी ",
+start:"2016-03-27",
+description:"<center><h2>img संकष्ट चतुर्थी<br>(चंद्रोदय १०.००) </h2></center><div class='allDetail'>विशाखा अहोरात्र <br>फाल्गुन कृ.  ४</div>"
+ },
+{
+title:"img<br>रंगपंचमी ",
+start:"2016-03-28",
+description:"<center><h2>img रंगपंचमी</h2></center><div class='allDetail'>फाल्गुन कृ. ५<br>विशाखा ०७.०४</div>"
+ },
+{
+title:"img<br>श्री एकनाथ षष्ठी ",
+start:"2016-03-29",
+description:"<center><h2>img श्री एकनाथ षष्ठी </h2></center><div class='allDetail'>अनुराधा ०९. ४०<br>फाल्गुन कृ. ६</div>"
+ },
+{
+title:"ज्येष्ठा ११. ४८<br>फाल्गुन कृ. ६",
+start:"2016-03-30",
+description:"<center><h2></h2></center><div class='allDetail'>ज्येष्ठा ११. ४८<br>फाल्गुन कृ. ६</div>"
+ },
+{
+title:"कालाष्टमी <br>फाल्गुन कृ. ७",
+start:"2016-03-31",
+description:"<center><h2></h2></center><div class='allDetail'>कालाष्टमी <br>फाल्गुन कृ. ७<br>मूळ १३. २२</div>"
+ },
 
      ];
