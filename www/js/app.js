@@ -208,8 +208,8 @@ $scope.safeApply = function(fn) {
 })
 .controller('GalleryCtrl', function($scope,  $ionicSideMenuDelegate,$ionicBackdrop, $ionicModal, $ionicSlideBoxDelegate, $ionicScrollDelegate) {
 
-    $ionicSideMenuDelegate.canDragContent(false)
-  $scope.allImages = [
+  $ionicSideMenuDelegate.canDragContent(false)
+  $scope.alandi_saptah = [
   {
     src: 'img/gallery/alandi_saptah/Image01.jpg'
   }, {
@@ -232,26 +232,137 @@ $scope.safeApply = function(fn) {
     src: 'img/gallery/alandi_saptah/Image10.jpg'
   }
   ];
-    $scope.newImages = [
+    $scope.ashadi = [
+    {
+    src: 'img/gallery/ashadi/Image01.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image02.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image03.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image04.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image05.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image06.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image07.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image08.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image09.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image10.jpg'
+  },
   {
-    src: 'img/pic1.jpg'
+    src: 'img/gallery/ashadi/Image11.jpg'
   }, {
-    src: 'img/pic2.jpg'
+    src: 'img/gallery/ashadi/Image12.jpg'
   }, {
-    src: 'img/pic3.jpg'
+    src: 'img/gallery/ashadi/Image13.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image14.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image15.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image16.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image17.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image18.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image19.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image20.jpg'
+  }, 
+  {
+   src: 'img/gallery/ashadi/Image21.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image22.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image23.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image24.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image25.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image26.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image27.jpg'
+  }, {
+    src: 'img/gallery/ashadi/Image28.jpg'
   }
   ];
+   $scope.jeur_saptah = [
+{
+    src: 'img/gallery/jeur_saptah/Image01.jpg'
+  }, {
+    src: 'img/gallery/jeur_saptah/Image02.jpg'
+  }, {
+    src: 'img/gallery/jeur_saptah/Image03.jpg'
+  }, {
+    src: 'img/gallery/jeur_saptah/Image04.jpg'
+  }, {
+    src: 'img/gallery/jeur_saptah/Image05.jpg'
+  }, {
+    src: 'img/gallery/jeur_saptah/Image06.jpg'
+  }, {
+    src: 'img/gallery/jeur_saptah/Image07.jpg'
+  }, {
+    src: 'img/gallery/jeur_saptah/Image08.jpg'
+  }, {
+    src: 'img/gallery/jeur_saptah/Image09.jpg'
+  }, {
+    src: 'img/gallery/jeur_saptah/Image10.jpg'
+  }
+
+  ];
+   $scope.bhakt_visit = [
+              {
+    src: 'img/gallery/visitors/Image01.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image02.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image03.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image04.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image05.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image06.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image07.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image08.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image09.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image10.jpg'
+  }];
 
   $scope.zoomMin = 1;
 
-  $scope.showImages = function(index) {
+  $scope.alandiSaptah = function(index) {
+  //  alert("1")
     $scope.activeSlide = index;
-    $scope.showModal('templates/gallery-zoomview.html');
+    $scope.showModal('templates/g_alandi_saptah.html');
   };
-$scope.Images = function(index1) {
-    $scope.activeSlide = index1;
-    $scope.showModal('templates/gallery2.html');
+ $scope.ashadiSaptah = function(index) {
+ // alert("2")
+    $scope.activeSlide = index;
+    $scope.showModal('templates/g_ashadi.html');
   };
+  $scope.jeurSaptah = function(index) {
+ // alert("2")
+    $scope.activeSlide = index;
+    $scope.showModal('templates/g_jeur.html');
+  };
+
+  $scope.bhaktVisit=function(index){
+    $scope.activeSlide = index;
+        $scope.showModal('templates/g_visitors.html');
+
+  }
 
   $scope.showModal = function(templateUrl) {
     $ionicModal.fromTemplateUrl(templateUrl, {

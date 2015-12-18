@@ -48,9 +48,13 @@
 <div class="modal" style="background-color:#ffffe5">
 <ion-header-bar class="bar-stable">
 <h1 class="title"><b>{{modalData.selectedDate}}</b></h1>
-<button class="button button-clear button-positive" ng-click="closeModal()"><span class="close">X</span>
-</button>
 </ion-header-bar>
+<ion-footer-bar style="background-color:transparent;bottom:5px">
+ <div class="col text-right">
+<button class="button button-icon button-clear ion-reply-all"  style="color:red;" ng-click="closeModal()">
+</button>
+ </div>
+</ion-footer-bar>
 <ion-content>
 <!--<h1>
 // <div ng-bind-html="modalData.eventTitle | sanitize"></div></h1>

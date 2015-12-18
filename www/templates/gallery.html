@@ -3,40 +3,45 @@
         <ion-content drag-content="false">
        <div class="item item-divider">
           <i class="ion-images"></i>
-          My Images
+          आळंदी साप्ताह
         </div>
 
         <a class="item item-list-detail">
           <ion-scroll direction="x">
-            <img ng-repeat="image in allImages" ng-src="{{image.src}}" ng-click="showImages($index)" class="image-list-thumb"/>
+            <img ng-repeat="image in alandi_saptah" ng-src="{{image.src}}" ng-click="alandiSaptah($index)" class="image-list-thumb"/>
           </ion-scroll>
         </a>
         <div class="item item-divider">
           <i class="ion-images"></i>
-        test
+        आषाढी माघ वारी २०१५
         </div>
 
         <a class="item item-list-detail">
           <ion-scroll direction="x">
-            <img ng-repeat="image in newImages" ng-src="{{image.src}}" ng-click="Images($index)" class="image-list-thumb"/>
+            <img ng-repeat="image in ashadi" ng-src="{{image.src}}" ng-click="ashadiSaptah($index)" class="image-list-thumb"/>
           </ion-scroll>
         </a>
+
+         <div class="item item-divider">
+          <i class="ion-images"></i>
+      जेऊर साप्ताह २०१५
+        </div>
+
+        <a class="item item-list-detail">
+          <ion-scroll direction="x">
+            <img ng-repeat="image in jeur_saptah" ng-src="{{image.src}}" ng-click="jeurSaptah($index)" class="image-list-thumb"/>
+          </ion-scroll>
+        </a>
+
+<div class="item item-divider">
+          <i class="ion-images"></i>
+मान्यवर व्यक्तीनची सांप्रदायक भेट        </div>
+
+        <a class="item item-list-detail">
+          <ion-scroll direction="x">
+            <img ng-repeat="image in bhakt_visit" ng-src="{{image.src}}" ng-click="bhaktVisit($index)" class="image-list-thumb"/>
+          </ion-scroll>
+        </a>
+
             </ion-content>
       </ion-view>
-      <script id="next.html" type="text/ng-template">
-<div class="modal" style="background-color:#ffffe5">
-<ion-header-bar class="bar-stable">
-<h1 class="title"><b>{{modalData.selectedDate}}</b></h1>
-<button class="button button-clear button-positive" ng-click="closeModal()"><span class="close">X</span>
-</button>
-</ion-header-bar>
-<ion-content>
-<!--<h1>
-// <div ng-bind-html="modalData.eventTitle | sanitize"></div></h1>
-// <h3 style="margin-left:10px;margin-right:10px">-->
-<br><br>
- <div ng-bind-html="modalData.description | sanitize"></div>
-<!-- </h3>-->
-</ion-content>
-</div>
-</script>

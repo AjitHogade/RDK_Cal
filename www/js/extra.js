@@ -237,3 +237,25 @@ title:''
               br>श्री संत सेवागिरी महाराज 
               <br>पुसेगाव रथ उत्सव 
             </div>', 
+
+              {
+    src: 'img/gallery/visitors/Image01.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image02.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image03.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image04.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image05.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image06.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image07.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image08.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image09.jpg'
+  }, {
+    src: 'img/gallery/visitors/Image10.jpg'
+  }
