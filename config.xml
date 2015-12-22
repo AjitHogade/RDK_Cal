@@ -23,10 +23,10 @@
   <icon src="res/android/icons/icon.png"/>
 
   <!-- you can use any density that exists in the Android project -->
-  <splash src="res/android/android-splash-land-hdpi.png" density="land-hdpi"/>
-  <splash src="res/android/android-splash-land-ldpi.png" density="land-ldpi"/>
-  <splash src="res/android/android-splash-land-mdpi.png" density="land-mdpi"/>
-  <splash src="res/android/android-splash-land-xhdpi.png" density="land-xhdpi"/>
+  <splash src="res/android/splash/android-splash-land-hdpi.png" density="land-hdpi"/>
+  <splash src="res/android/splash/android-splash-land-ldpi.png" density="land-ldpi"/>
+  <splash src="res/android/splash/android-splash-land-mdpi.png" density="land-mdpi"/>
+  <splash src="res/android/splash/android-splash-land-xhdpi.png" density="land-xhdpi"/>
 
   <splash src="res/android/splash/android-splash-port-hdpi.png" density="port-hdpi"/>
   <splash src="res/android/splash/android-splash-port-ldpi.png" density="port-ldpi"/>

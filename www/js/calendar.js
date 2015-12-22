@@ -244,8 +244,10 @@ angular.module('ui.calendar', [])
 
         scope.destroy = function(){
           if(calendar && calendar.fullCalendar){
-            calendar.fullCalendar('destroy');
-          }
+   scope.calendar.fullCalendar('renderEvent', event);
+            scope.destroy();
+            getOptions(); //Probl. you need to take the options again.
+            scope.init();          }
           if(attrs.calendar) {
             calendar = uiCalendarConfig.calendars[attrs.calendar] = $(elm).html('');
           } else {

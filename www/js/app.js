@@ -103,28 +103,24 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
             controller: 'InfoCtrl'
           },     
         }
-     })
-   
+     }) 
    $urlRouterProvider.otherwise("/tab/home");
-
 })
+
 .controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
   $scope.showMenu = function () {
     $ionicSideMenuDelegate.toggleLeft();
-  };
- 
+  }; 
 })
 .controller('HomeTabCtrl', function($scope,$ionicSideMenuDelegate) {
 
 })
 .controller('InfoCtrl', function($scope, $stateParams, $timeout) {
          $ionicSideMenuDelegate.canDragContent(true);
-
 })
 
 .controller('CalTabCtrl', function($scope ,$ionicSideMenuDelegate,$ionicModal, $ionicPopup,$sce) {
       $ionicSideMenuDelegate.canDragContent(true);
-
             $scope.eventSources = [];
             $scope.eventSources.push(events)
             $scope.calOptions = {
@@ -140,35 +136,15 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
                 var selectedDate=calEvent.start.format('Do MMMM YYYY,dddd');
                 var eventTitle=calEvent.title;
                 var description=calEvent.description;
-                //alert(selectedDate);
-                //alert('Event: ' +a );
                    $scope.safeApply(function()
                    {
-                   // alert('Event: ' + calEvent.description);
                      $scope.eventModal(selectedDate,eventTitle,description)
                    });
                  },
-
                  eventRender: function (event, element) {
-                 element.find('span.fc-title').html(element.find('span.fc-title').text());
-                  if (event.imageurl) {
-        eventElement.find("div.fc-content").prepend("<img src='" + event.imageurl +"' width='12' height='12'>");
-    }
-             eventElement.find("div.fc-event").parents('div..fc td').css('background-image','red')
-                 },
-                     dayClick: function(date, jsEvent, view) {
-
-        alert('Clicked on: ' + date.format());
-
-        alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-
-        alert('Current view: ' + view.name);
-
-        // change the day's background color just for fun
-        $(this).css('background-color', 'red');
-
-    }
-
+                 element.find('span.fc-title').html(element.find('span.fc-title').text()); 
+                     
+                 }
                };
 
         $ionicModal.fromTemplateUrl('event-modal.html', function(modal) {

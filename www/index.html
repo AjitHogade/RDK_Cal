@@ -14,14 +14,11 @@
     <script src="cordova.js"></script>
     <!-- your app's js -->  
     <script src="js/jquery.min.js"></script>
-    <script src="js/moment/moment.min.js"></script>
-<!--    <script src="js/moment/locale/hi.js"></script>-->
-    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+     <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+         <script src="js/moment/moment.min.js"></script>
+
   
-    <script src="js/fullcalendar.min.js"></script>
-    <script src="language/hi.js"></script>
-    <script src="js/calendar.min.js"></script>  
-    <script src="js/app.js"></script>
+
 
 </head>
   <body ng-app="ionicApp">
@@ -43,30 +40,11 @@
    <ion-nav-view animation="slide-left-right"></ion-nav-view>
                   
 
-        <!-- Event Click MODAL -->
-<script id="event-modal.html" type="text/ng-template">
-<div class="modal" style="background-color:#ffffe5">
-<ion-header-bar class="bar-stable">
-<h1 class="title"><b>{{modalData.selectedDate}}</b></h1>
-</ion-header-bar>
-<ion-footer-bar style="background-color:transparent;bottom:5px">
- <div class="col text-right">
-<button class="button button-icon button-clear ion-reply-all"  style="color:red;" ng-click="closeModal()">
-</button>
- </div>
-</ion-footer-bar>
-<ion-content>
-<!--<h1>
-// <div ng-bind-html="modalData.eventTitle | sanitize"></div></h1>
-// <h3 style="margin-left:10px;margin-right:10px">-->
-<br><br>
- <div ng-bind-html="modalData.description | sanitize"></div>
-<!-- </h3>-->
-</ion-content>
-</div>
-</script>
-     
 
+<script src="js/fullcalendar.min.js"></script>
+<script src="language/hi.js"></script>
+<script src="js/calendar.js"></script>   
+<script src="js/app.js"></script>
 <script src="js/controllers.js"></script>
 
   </body>
