@@ -245,7 +245,6 @@ angular.module('ui.calendar', [])
         scope.destroy = function(){
           if(calendar && calendar.fullCalendar){
             scope.calendar.fullCalendar('renderEvent', event);
-            scope.destroy();
              getOptions(); //Probl. you need to take the options again.
             scope.init();          }
           if(attrs.calendar) {

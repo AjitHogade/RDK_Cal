@@ -1,4 +1,8 @@
 /* Empty. Add your own CSS if you like */
+.pane {
+    background-color: #ffad33;
+}
+
 .image-list-thumb {
     padding: 2px 2px 2px 2px;
     height: 150px;
@@ -31,5 +35,15 @@
 
 .openSesame{
     background-color: red;
+}
+
+.custom,
+.custom div,
+.custom span {
+    background-color: #ff5b33; /* background color */
+    color: white;    /* text color */
+    border-top-right-radius: 5px;       
+    border-bottom-right-radius: 5px;        /* text color */
+
 }
 

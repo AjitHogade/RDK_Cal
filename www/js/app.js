@@ -119,10 +119,10 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
          $ionicSideMenuDelegate.canDragContent(true);
 })
 
-.controller('CalTabCtrl', function($scope ,$ionicSideMenuDelegate,$ionicModal, $ionicPopup,$sce) {
+.controller('CalTabCtrl', function($scope ,$timeout,$ionicLoading,$ionicSideMenuDelegate,$ionicModal, $ionicPopup,$sce) 
+{
       $ionicSideMenuDelegate.canDragContent(true);
-            $scope.eventSources = [];
-            $scope.eventSources.push(events)
+            $scope.eventSources = [events];
             $scope.calOptions = {
               editable: true,
               lang:'hi',
@@ -132,7 +132,8 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
               center: 'title,today',
               right: 'next'
               },
-              eventClick: function(calEvent, jsEvent, view){  
+ events: 'C:/wamp/www/RDK_Cal/www/js/controller.js',
+               eventClick: function(calEvent, jsEvent, view){  
                 var selectedDate=calEvent.start.format('Do MMMM YYYY,dddd');
                 var eventTitle=calEvent.title;
                 var description=calEvent.description;
@@ -141,12 +142,29 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
                      $scope.eventModal(selectedDate,eventTitle,description)
                    });
                  },
-                 eventRender: function (event, element) {
-                 element.find('span.fc-title').html(element.find('span.fc-title').text()); 
-                     
-                 }
-               };
 
+                 eventRender: function (event, element) {
+                                  // $scope.loading();
+                 element.find('span.fc-title').html(element.find('span.fc-title').text()); 
+
+        
+                 },
+                 loading:function(isLoading, view){
+      //      alert("is loading " + isLoading);
+             if(isLoading == true){
+         $ionicLoading.show({
+   //   duration: 2000,
+      showBackdrop: true,
+      template: '<p class="item-icon-left">Loading stuff...<ion-spinner icon="lines"/></p>'
+    });
+             }
+              if(isLoading == false){
+            $ionicLoading.hide();
+             }
+             }
+               };
+   
+         
         $ionicModal.fromTemplateUrl('event-modal.html', function(modal) {
         $scope.eventsModal = modal;
         },{
@@ -154,6 +172,17 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
         animation: 'slide-in-up'
         });  
 
+      $scope.load=function(){       
+   $ionicLoading.show({
+      template: 'Loading',
+      duration:500,
+    animation: 'fade-in',
+    showBackdrop: true,
+    maxWidth: 200,
+    showDelay: 0
+  });
+
+ }
  $scope.eventModal=function(selectedDate,eventTitle,description){
  //alert(eventTitle);
  $scope.modalData = { "selectedDate" : selectedDate,
