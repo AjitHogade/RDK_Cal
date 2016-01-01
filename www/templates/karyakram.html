@@ -1,5 +1,49 @@
      <ion-view title="कार्यक्रम">
         <ion-content>
-        karyakram 
+        <ion-list>
+        <div ng-repeat="group in groups">
+          <ion-item class="item" style=" background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, red, yellow); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, red, yellow); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, red, yellow); /* Standard syntax */"
+                    ng-click="toggleGroup(group)"
+                    ng-class="{active: isGroupShown(group)}">
+              <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+    <b>{{group.title}} </b>         </ion-item>
+          <ion-item class="item-accordion" style="background-color:#ffad33;color:blue"
+                    ng-repeat="content in group.contents"
+
+                    ng-show="isGroupShown(group)"
+                    ng-click="programModal()">
+{{content.title}}</br>{{content.description}}</ion-item>
+        </div>
+      </ion-list>
         </ion-content>
       </ion-view>
+
+     <script id="program-modal.html" type="text/ng-template">
+<div class="modal" style="background-color:#ffffe5">
+<ion-header-bar class="bar-stable">
+<h1 class="title"><b></b></h1>
+</ion-header-bar>
+<ion-footer-bar style="background-color:transparent;bottom:5px">
+ <div class="col text-right">
+<button class="button button-icon button-clear ion-reply-all"  style="color:red;" ng-click="closeModal()">
+</button>
+ </div>
+</ion-footer-bar>
+<ion-content>
+<div class="list card" style="border-radius: 0px !important;">
+
+          <div class="item item-avatar item-text-wrap">
+            <img ng-src="http://placehold.it/65x65">
+            <h2>{{content.line}}</h2>
+          
+          </div>
+       
+
+        </div>
+</ion-content>
+</div></script>

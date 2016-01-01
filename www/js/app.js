@@ -25,17 +25,19 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
     .state('menu.tabs.charitra', {
       url: '/charitra',
       views: {
-      'home-tab': {
+      'menuContent': {
         templateUrl: 'templates/charitra.html'
-      }
-    }
+      
+    }}
     })
          
     .state('menu.tabs.karyakram', {
       url: '/karyakram',
       views: {
-      'home-tab': {
-        templateUrl: 'templates/karyakram.html'
+      'menuContent': {
+        templateUrl: 'templates/karyakram.html',
+        controller: 'ProgramCtrl'
+
       }
     }
     })
@@ -43,7 +45,7 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
    .state('menu.tabs.granthbhandar', {
      url: '/granthbhandar',
      views: {
-      'home-tab': {
+      'menuContent': {
         templateUrl: 'templates/granthbhandar.html'
       }
     }
@@ -52,7 +54,7 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
    .state('menu.tabs.dengi', {
     url: '/dengi',
     views: {
-      'home-tab': {
+      'menuContent': {
         templateUrl: 'templates/dengi.html'
       }
     }
@@ -60,7 +62,7 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
    .state('menu.tabs.sampark', {
      url: '/sampark',
      views: {
-      'home-tab': {
+      'menuContent': {
         templateUrl: 'templates/sampark.html'
       }
     }
@@ -71,7 +73,7 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
       views: {
         'home-tab': {
           templateUrl: "templates/home.html",
-          controller: 'HomeTabCtrl'
+          controller: 'MyCtrl'
         }
       }
     })
@@ -98,9 +100,9 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
     .state('menu.tabs.info', {
       url: '/info',
       views: {
-        'menuContent': {
+        'info-tab': {
             templateUrl: 'templates/info.html',
-            controller: 'InfoCtrl'
+          
           },     
         }
      }) 
@@ -115,14 +117,11 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
 .controller('HomeTabCtrl', function($scope,$ionicSideMenuDelegate) {
 
 })
-.controller('InfoCtrl', function($scope, $stateParams, $timeout) {
-         $ionicSideMenuDelegate.canDragContent(true);
-})
 
 .controller('CalTabCtrl', function($scope ,$timeout,$ionicLoading,$ionicSideMenuDelegate,$ionicModal, $ionicPopup,$sce) 
 {
       $ionicSideMenuDelegate.canDragContent(true);
-            $scope.eventSources = [events];
+      
             $scope.calOptions = {
               editable: true,
               lang:'hi',
@@ -132,7 +131,6 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
               center: 'title,today',
               right: 'next'
               },
- events: 'C:/wamp/www/RDK_Cal/www/js/controller.js',
                eventClick: function(calEvent, jsEvent, view){  
                 var selectedDate=calEvent.start.format('Do MMMM YYYY,dddd');
                 var eventTitle=calEvent.title;
@@ -142,7 +140,7 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
                      $scope.eventModal(selectedDate,eventTitle,description)
                    });
                  },
-
+events: "C:/wamp/www/RDK_Cal/www/js/controller.js",
                  eventRender: function (event, element) {
                                   // $scope.loading();
                  element.find('span.fc-title').html(element.find('span.fc-title').text()); 
@@ -150,20 +148,29 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
         
                  },
                  loading:function(isLoading, view){
-      //      alert("is loading " + isLoading);
+        //   alert("is loading " + isLoading);
              if(isLoading == true){
-         $ionicLoading.show({
-   //   duration: 2000,
-      showBackdrop: true,
-      template: '<p class="item-icon-left">Loading stuff...<ion-spinner icon="lines"/></p>'
-    });
+          //            alert("is loading is true");
+
+    $ionicLoading.show({
+      template: ' <ion-spinner icon="android"></ion-spinner>',
+   //   duration:500,
+    animation: 'fade-in',
+    showBackdrop: true,
+    maxWidth: 200,
+    showDelay: 0
+  });
              }
               if(isLoading == false){
-            $ionicLoading.hide();
+           $ionicLoading.hide();
              }
+             },
+             eventAfterAllRender:function( view ) { 
+     
              }
                };
-   
+               $scope.eventSources = [$scope.eventSource,events];
+
          
         $ionicModal.fromTemplateUrl('event-modal.html', function(modal) {
         $scope.eventsModal = modal;
@@ -291,8 +298,6 @@ $scope.safeApply = function(fn) {
   }, {
     src: 'img/gallery/ashadi/Image25.jpg'
   }, {
-    src: 'img/gallery/ashadi/Image26.jpg'
-  }, {
     src: 'img/gallery/ashadi/Image27.jpg'
   }, {
     src: 'img/gallery/ashadi/Image28.jpg'
@@ -391,6 +396,87 @@ $scope.safeApply = function(fn) {
       $ionicSlideBoxDelegate.enableSlide(false);
     }
   };
+})
+
+.controller('ProgramCtrl', function($scope,$ionicModal,$ionicPopup) {
+   $scope.groups = [{
+      title: "* साप्ताह *",
+      contents: [
+        {
+          title: "DONT BE AFRAID",
+          description :"Mornig",
+         
+        },
+        {
+          title: "DONT BE AFRAID",
+          description :"Mornig",
+         
+        }
+      ]
+    },
+    {
+      title: "* मुक्काम *",
+      contents: [
+         {
+          title: "DONT BE AFRAID",
+          description :"Mornig",
+         
+        },
+        {
+          title: "DONT BE AFRAID",
+          description :"Mornig",
+         
+        }
+      ]
+    },
+      {
+      title: "* गुरुदेव दादांची शुद्ध शष्टी *",
+      contents: [
+        {
+          title: "DONT BE AFRAID",
+          description :"Mornig",
+         
+        },
+        {
+          title: "DONT BE AFRAID",
+          description :"Mornig",
+         
+        }
+      ]
+    },
+       {
+      title: "* संकष्ट चतुर्थी *",
+      contents: [
+        {
+          title: "DONT BE AFRAID",
+          description :"Mornig",
+         
+        },
+        {
+          title: "DONT BE AFRAID",
+          description :"Mornig",
+         
+        }
+      ]
+    }
+  ];
+  
+  
+  /*
+   * if given group is the selected group, deselect it
+   * else, select the given group
+   */
+  $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
+
 });
 
 

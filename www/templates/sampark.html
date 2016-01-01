@@ -9,7 +9,28 @@
 <p><b>मठाधिपती:</b>श्री.स.स.पांडुरंग महाराज रसाळ आण्णा:<b> ९९६७९१०१०/९४२३९१०५२१.</b></p>
 <p><b>अध्यक्ष : </b>श्री.तुकाराम रसाळ भाऊ:<b> ९८९०१६८०२१.</b></p>
 <p><b>वेदांताचार्य : </b>श्री.दिनेश रसाळ भैय्या :<b> ८९५६३५२७२८.</b></p> 
-<p><b>फेसबुक:</b><a href=""> रसाळ दर्शन</a></p>
+<p><b>फेसबुक:</b><a href="https://www.facebook.com/RasalDarshan"> रसाळ दर्शन</a></p>
 </div>
   </ion-content>
 </ion-view>
+
+<script id="program-modal.html" type="text/ng-template">
+<div class="modal" style="background-color:#ffffe5">
+<ion-header-bar class="bar-stable">
+<h1 class="title"><b>{{modalData.selectedDate}}</b></h1>
+</ion-header-bar>
+<ion-footer-bar style="background-color:transparent;bottom:5px">
+ <div class="col text-right">
+<button class="button button-icon button-clear ion-reply-all"  style="color:red;" ng-click="closeModal()">
+</button>
+ </div>
+</ion-footer-bar>
+<ion-content>
+<!--<h1>
+// <div ng-bind-html="modalData.eventTitle | sanitize"></div></h1>
+// <h3 style="margin-left:10px;margin-right:10px">-->
+<br><br>
+ <div ng-bind-html="modalData.description | sanitize"></div>
+<!-- </h3>-->
+</ion-content>
+</div>
