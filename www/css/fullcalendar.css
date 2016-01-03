@@ -401,7 +401,6 @@ hr.fc-divider {
 
 .fc td {
 
-	
 	border-radius: 8px;
 	font-weight: bold;
 	background-color: #ffffb3;
@@ -1090,7 +1089,7 @@ be a descendant of the grid when it is being dragged.
 /* Custom css events */
 
 .publicHoliday{
-	background-color: red;
+	background-color: blue;
 }
 
 .allDetail
@@ -1122,3 +1121,6 @@ border-radius:20px;
 	border-radius: 15px;
 	font-weight: bold;
 }
+td.fc-other-month .fc-day-number {
+		display: none;
+		}
