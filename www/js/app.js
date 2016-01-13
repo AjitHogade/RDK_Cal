@@ -109,9 +109,20 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
    $urlRouterProvider.otherwise("/tab/home");
 })
 
-.controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
+.controller('NavCtrl', function($scope, $ionicSideMenuDelegate,$ionicModal) {
   $scope.showMenu = function () {
     $ionicSideMenuDelegate.toggleLeft();
+  };
+     $scope.openRahu = function () {
+         $ionicModal.fromTemplateUrl('kaal_rahu.html', {
+      scope: $scope
+    }).then(function(modal) {
+      $scope.modal = modal;
+      $scope.modal.show();
+    });
+  }; 
+   $scope.closeModal=function() {
+  $scope.modal.hide();
   }; 
 })
 .controller('HomeTabCtrl', function($scope,$ionicSideMenuDelegate) {
@@ -134,9 +145,11 @@ angular.module('ionicApp', ['ionic','ui.calendar', 'ngSanitize'])
         lazyFetching: true,
             minTime: 8,
              viewRender: function(view,element){
-             // alert(view);
-                  $("tr").hide();
-                  $("tr").fadeIn(1000);
+            // alert(view);
+                  $ionicLoading.show({
+                    content:'<div class="cssload-container"><div class="cssload-speeding-wheel"></div></div>',
+              
+              });
             },
                eventClick: function(calEvent, jsEvent, view){  
                 var selectedDate=calEvent.start.format('Do MMMM YYYY,dddd');
@@ -155,18 +168,11 @@ events: "C:/wamp/www/RDK_Cal/www/js/controller.js",
         
                  },
 loading:function(isLoading, view){
-             if(isLoading == true){
-              $ionicLoading.show({
-              template: ' <ion-spinner icon="android"></ion-spinner>',
-              animation: 'fade-in',
-              showBackdrop: true,
-           //   duration:400,
-              maxWidth: 200,
-              showDelay: 0
-              });
-             }
+             // if(isLoading == true){
+             
+             // }
             if(isLoading == false){
-             $ionicLoading.hide();
+           $ionicLoading.hide();
              }
   }
 };
@@ -228,8 +234,6 @@ $scope.safeApply = function(fn) {
   }, {
     src: 'img/gallery/alandi_saptah/Image08.jpg'
   }, {
-    src: 'img/gallery/alandi_saptah/Image09.jpg'
-  }, {
     src: 'img/gallery/alandi_saptah/Image10.jpg'
   }
   ];
@@ -252,18 +256,12 @@ $scope.safeApply = function(fn) {
     src: 'img/gallery/ashadi/Image08.jpg'
   }, {
     src: 'img/gallery/ashadi/Image09.jpg'
-  }, {
-    src: 'img/gallery/ashadi/Image10.jpg'
   },
   {
     src: 'img/gallery/ashadi/Image11.jpg'
   }, {
-    src: 'img/gallery/ashadi/Image12.jpg'
-  }, {
     src: 'img/gallery/ashadi/Image13.jpg'
-  }, {
-    src: 'img/gallery/ashadi/Image14.jpg'
-  }, {
+  },  {
     src: 'img/gallery/ashadi/Image15.jpg'
   }, {
     src: 'img/gallery/ashadi/Image16.jpg'
@@ -279,14 +277,10 @@ $scope.safeApply = function(fn) {
   {
    src: 'img/gallery/ashadi/Image21.jpg'
   }, {
-    src: 'img/gallery/ashadi/Image22.jpg'
-  }, {
     src: 'img/gallery/ashadi/Image23.jpg'
   }, {
     src: 'img/gallery/ashadi/Image24.jpg'
-  }, {
-    src: 'img/gallery/ashadi/Image25.jpg'
-  }, {
+  },{
     src: 'img/gallery/ashadi/Image27.jpg'
   }, {
     src: 'img/gallery/ashadi/Image28.jpg'
@@ -335,8 +329,6 @@ $scope.safeApply = function(fn) {
     src: 'img/gallery/visitors/Image08.jpg'
   }, {
     src: 'img/gallery/visitors/Image09.jpg'
-  }, {
-    src: 'img/gallery/visitors/Image10.jpg'
   }];
 
   $scope.zoomMin = 1;
@@ -454,57 +446,57 @@ $scope.safeApply = function(fn) {
       title: "* गुरुदेव दादांची शुद्ध शष्टी *",
       contents: [
         {
-          title: "१५/०१/२०१६",
-          description :"ठिकाण",       
+          title: "१५ जानेवारी २०१६",
+          description :"ठिकाण: ठाणे डवले नगर",       
         },
         {
-          title: "१५/०१/२०१६",
-          description :"ठिकाण",       
+          title: "१३ फेब्रुवारी २०१६",
+          description :"ठिकाण: समाधी मंदिर ",       
         },
          {
-          title: "१५/०१/२०१६",
-          description :"ठिकाण",       
+          title: "१४ मार्च २०१६",
+          description :"ठिकाण:समाधी मंदिर",       
         },
         {
-          title: "१५/०१/२०१६",
-          description :"ठिकाण",       
+          title: "१२ एप्रिल २०१६",
+          description :"ठिकाण: कोळेवाडी मंदिर ",       
         },
         {
-          title: "१५/०१/२०१६",
-          description :"ठिकाण",       
+          title: "१२ मे २०१६",
+          description :"ठिकाण: समाधी मंदिर",       
         },
         {
-          title: "१५/०१/२०१६",
-          description :"ठिकाण",       
+          title: "१० जून २०१६",
+          description :"ठिकाण:धुळदेव ",       
         },
         {
-          title: "१५/०१/२०१६",
-          description :"ठिकाण",       
+          title: "१० जूलै २०१६",
+          description :"ठिकाण: समाधी मंदिर",       
         },
         {
-          title: "१५/०१/२०१६",
-          description :"ठिकाण",       
+          title: "९ ऑगस्ट २०१६",
+          description :"ठिकाण: समाधी मंदिर",       
         },
         {
-          title: "१५/०१/२०१६",
-          description :"ठिकाण",       
+          title: "७ सप्टेंबर२०१६६",
+          description :"ठिकाण: समाधी मंदिर",       
         },
         {
-          title: "१५/०१/२०१६",
-          description :"ठिकाण",       
+          title: "७ ऑकटोबर २०१६",
+          description :"ठिकाण: समाधी मंदिर",       
         },
         {
-          title: "१५/०१/२०१६",
-          description :"ठिकाण",       
+          title: "१६  नोव्हेंबर २०१६",
+          description :"ठिकाण: समाधी मंदिर",       
         },
         {
-          title: "१५/०१/२०१६",
-          description :"ठिकाण",       
+          title: "५ डिसेंबर २०१६",
+          description :"ठिकाण: समाधी मंदिर",       
         },
 
       ]
     },
-       {
+       /*{
       title: "* संकष्ट चतुर्थी *",
       contents: [
         {
@@ -556,7 +548,7 @@ $scope.safeApply = function(fn) {
           description :"चंद्रोदय",        
         },
       ]
-    }
+    }*/
   ];  
   /*
    * if given group is the selected group, deselect it

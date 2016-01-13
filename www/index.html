@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
@@ -7,36 +8,339 @@
     <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/fullcalendar.min.css" rel="stylesheet">
-    
-    <!-- Java Script -->
-    <!-- cordova script (this will be a 404 during development) -->   
     <script src="cordova.js"></script>
-    <!-- your app's js -->  
     <script src="js/jquery.min.js"></script>
-     <script src="lib/ionic/js/ionic.bundle.min.js"></script>
-         
-     <script src="js/moment/moment.min.js"></script>
-  <script src="js/app.js"></script>
-<script src="js/fullcalendar.min.js"></script>
-<script src="language/hi.js"></script>
-<script src="js/calendar.min.js"></script>
-
-
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+    <script src="js/moment/moment.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/fullcalendar.min.js"></script>
+    <script src="language/hi.js"></script>
+    <script src="js/calendar.min.js"></script>
 </head>
-  <body ng-app="ionicApp">
 
-    <!--HEADER  -->
-  
-   
-<ion-nav-view></ion-nav-view>                  
-
-
-   
-<script src="js/events.min.js"></script>
- <!--<script src="js/controllers.js"></script>-->
-
-
-
-  </body>
+<body ng-app="ionicApp">
+    <ion-nav-view></ion-nav-view>
+    <script id="templates/home.html" type="text/ng-template">
+        <!-- <ion-view title='<img class="title-image" src="img/dada.jpg"/> रसाळ दिनदर्शिका <img class="title-image" src="img/dada.jpg"/>'> -->
+      <ion-view title="卐 रसाळ दिनदर्शिका 卐">
+   <ion-content>
+       <div>
+<img class="home_img" src="img/loadImg/intro-sampraday_1.jpg" style="width:100%"/>
+        </div>
+        </ion-content>
+      </ion-view>
+      <script type="text/javascript">
+ function set_body_height() { // set body height = window height
+    $('img').height($(window).height()-50);
+  }
+  $(document).ready(function() {
+    $(window).bind('resize', set_body_height);
+    set_body_height();
+  });
+  </script>
+</script>
+        <script id="templates/calendar.html" type="text/ng-template">
+            <ion-view title="卐 रसाळ दिनदर्शिका 卐" animation="slide-left-right">
+                <ion-content>
+                    <div ng-controller='CalTabCtrl'>
+                        <br>
+                        <div class="calendar" id="calendar" ng-model="eventSources" ui-calendar="calOptions"></div>
+                    </div>
+                </ion-content>
+            </ion-view> <span class="load">Hello</span>
+            <script id="event-modal.html" type="text/ng-template">
+                <div class="modal" style="background-color:#ffffe5">
+                    <ion-header-bar class="bar-stable">
+                        <h1 class="title"><b>{{modalData.selectedDate}}</b></h1></ion-header-bar>
+                    <ion-footer-bar style="background-color:transparent;bottom:5px">
+                        <div class="col text-right">
+                            <button class="button button-icon button-clear ion-reply-all" style="color:red;" ng-click="closeModal()"></button>
+                        </div>
+                    </ion-footer-bar>
+                    <ion-content>
+                        <!--<h1>// <div ng-bind-html="modalData.eventTitle | sanitize"></div></h1>// <h3 style="margin-left:10px;margin-right:10px">-->
+                        <br>
+                        <br>
+                        <div ng-bind-html="modalData.description | sanitize"></div>
+                    </ion-content>
+                </div>
+            </script>
+            <script id="templates/gallery.html" type="text/ng-template">
+                <ion-view title="卐 रसाळ दिनदर्शिका 卐">
+                    <ion-content drag-content="false">
+                        <div class="item item-divider"> <i class="ion-images"></i> आळंदी वारी </div>
+                        <a class="item item-list-detail">
+                            <ion-scroll direction="x"> <img ng-repeat="image in alandi_saptah" ng-src="{{image.src}}" ng-click="alandiSaptah($index)" class="image-list-thumb" /> </ion-scroll>
+                        </a>
+                        <div class="item item-divider"> <i class="ion-images"></i> आषाढी वारी २०१५ </div>
+                        <a class="item item-list-detail">
+                            <ion-scroll direction="x"> <img ng-repeat="image in ashadi" ng-src="{{image.src}}"ng-click="ashadiSaptah($index)" class="image-list-thumb" /> </ion-scroll>
+                        </a>
+                        <div class="item item-divider"> <i class="ion-images"></i> जेऊर साप्ताह २०१५ </div>
+                        <a class="item item-list-detail">
+                            <ion-scroll direction="x"> <img ng-repeat="image in jeur_saptah" ng-src="{{image.src}}" ng-click="jeurSaptah($index)" class="image-list-thumb" /> </ion-scroll>
+                        </a>
+                        <div class="item item-divider"> <i class="ion-images"></i>मान्यवर व्यक्तीनची सांप्रदायक भेट </div>
+                        <a class="item item-list-detail">
+                            <ion-scroll direction="x"> <img ng-repeat="image in bhakt_visit" ng-src="{{image.src}}" ng-click="bhaktVisit($index)" class="image-list-thumb" /> </ion-scroll>
+                        </a>
+                    </ion-content>
+                </ion-view>
+            </script>
+            <script id="templates/info.html" type="text/ng-template">
+                <ion-view title="卐 रसाळ दिनदर्शिका 卐">
+                    <ion-content>
+                        <div style="margin-left:10px;margin-right:10px;font-style:italic;font-family:Times New Roman, Times, serif;">
+                            <br>
+                            <h3><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;इंचगिरी रसाळ सांप्रदायाची स्थापना श्री समर्थ स. स. शंकर महाराज रसाळ दादा यांनी श्री क्षेत्र जेऊर येथे सन १९७१ साली केली. इंचगिरी रसाळ सांप्रदाय हा गुरुपरंपरेचा उज्वल वसा लाभलेला अतिशय महान सांप्रदाय आहे.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;भगवान शंकरांनी पार्वती मातेला सांगितलेले गृह्य ज्ञान श्री मच्छिंद्रनाथाप्रमाणेच दत्तगुरुंकडून हे ज्ञान त्यांचे शिष्य "सिद्धनाथ" यांना मिळाले त्यांना लोक काडसिद्धनाथ असेही संबोधित असत. पुढे त्यांनी कोल्हापूर जवळील एका टेकडीवर आश्रम बांधला व तेथे वास्तव्य करून भक्तीप्रसार सुरु केला काही वर्षांनी त्या ठिकाणीच त्यांनी समाधी घेतली. त्या टेकडीस "सिद्धगिरी" असे नाव आहे अशा प्रकारे रेवळनाथन पासून काडसिद्धनाथापर्यंत इंचगिरी रसाळ सांप्रदायाची परंपरा चालत आली.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;श्री काडसिद्धनाथांकडून हे पवित्र ज्ञान श्री गुरुलिंगजंगम महाराजांना मिळाले. त्यांचा जन्म इ.स. १७८९ मध्ये लिंगायत निलावणी कुळामध्ये निबर्गी या गावी झाला. त्यांचे लहानपणीचे नाव नारायण असे होते. त्यांचा लिंगायत जातीत झाला असल्यामुळे घराण्याच्या परंपरेनुसार जावळ काढण्यासाठी नारायण एकदा कुटुंबासहित "सिद्धगिरी" येथे गेले. तेथे एका गुहेत एक त्यांना एक साधु भेतले. त्या साधूंच्या चरणावर नतमस्तक होताच त्यांना साधूंनी अनुग्रह दिला त्या साधुंकडून सबीज नाम मिळाल्यानंतर त्यावर दृढविश्वास ठेवून नारायणांनी अत्यंत कठोर साधना केली व एकसामान्य व्यक्ती असणाऱ्या नारायणाचे ते श्री गुरुलिंगजंगम "महाराज" झाले.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;श्री गुरुलिंगजंगम महाराजांच्या प्रमुख शिष्यापैकी एक श्री भाऊसाहेब महाराज हे होते त्यांचा जन्म "उमदी" येथील प्रसिद्ध देशपांडे घराण्यात श्री खंडेराव देशपांडे यांच्या पोटी झाला. श्री गुरुलिंगजंगम महाराजाकडून "नाम" मिळाल्या नंतर त्यावर निष्ठा ठेवून श्री भाऊसाहेब महाराज त्रिकाल साधना करू लागले. त्यांचे आचरण अतिशय शुद्ध होते. ते शिस्तीच्या व नेमाच्या बाबतीत अतिशय कडक होते. त्यांनी केलेल्या केलेल्या त्रिकाल साधनेचा नेम आयुष्याअखेरापर्यंत ते कधीही चुकले नाहीत. परमार्थ करीत असताना अनेक संकट आली त्या संकटाकाळी सुद्धा त्यांनी आपला नेम कधीही सोडला नाही अशा प्रकारे आयुष्याचा अखेर पर्यंत परमार्थाचा प्रसार करीत श्री भाऊसाहेब महाराजांनी सन १९१४ साली सद्गुरुचरणी आपला देह ठेवला.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;श्री भाऊसाहेब महाराजांचे अनेक विद्वान शिष्य होत गेले त्या पैकी एक "श्री सिद्धरामेश्वर महराज" हे होते. ते धनगर समाजातले होते. त्यांचे शिक्षण अवघे चौथी इयत्ते पर्यंत झाले होते श्री सद्गुरु भाऊसाहेब महाराजांकडून मिळालेल्या उपदेशाप्रमाणे कठीण साधना करत ते श्रेष्ठ पदाला पोहचले शिक्षण जरी कमी असले तरी त्यांचे अनेक शिष्य उच्च शिक्षित होते. त्यामध्ये श्री किसनसिंग महाराज श्री गणपत महाराज कन्नूरकर श्री दत्तात्रेय धर्माच्या पोरोडी वकील श्री धोंडोपंत महाराज भोसेकर इत्यादी होते. हे सर्व महान गुरुभक्त होते. श्री सिद्धरामेश्वर महाराज दिवाळी निमित्त त्यांचे एक शिष्य श्री पोरोडी वकील यांचेकडे मुंबई येथे गेले तेथे गेल्यानंतर अचानक त्यांच्या तब्बेतीत बिघाड झाला व सोमवार दिनांक ९ नोव्हेंबर १९३६ रोजी आपला देह त्यांनी सद्गुरु चरणी ठेवला.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"भोसे" गावाचे श्री धोंडोपंत महाराज हे सोलापूर येथे एका गिरणीमध्ये कामाला होते. श्री सिद्धरामेश्वर महाराज "सोलापूर" येथे नेहमी प्रवचनासाठी जात असत. तेथे त्यांचा मोठा शिष्य परिवार होता. श्री धोंडोपंत महाराज त्यांचे प्रवचन ऐकण्यासाठी नेहमी जात असत. त्यांची प्रवचने एकूण श्री धोंडोपंत महाराजांच्या मनात त्यांच्या विषयी कमालीचा आदर व भक्ती भाव निर्माण झाला आणि त्यांनी सिद्धरामेश्वर महाराजांकडून अनुग्रह घेतला पुढे त्यांनी सद्गुरुंकडून मिळालेल्या ज्ञानाचा व परमार्थाचा महाराष्ट्रभर प्रसार केला. याच श्री धोंडोपंत महाराजांकडून श्री समर्थ स. स. समर्थापर्यंत येउन पोहचले. <br><br></h3></b>
+                            <h1>परंपरा </h1>
+                            <h3><b>श्री रेवणनाथ महाराज<br>श्री काडसिद्धनाथ महाराज <br>श्री गुरुलिंगमजंगम महाराज <br>श्री भाऊसाहेब महाराज उमदी <br>श्री सिद्धरामेश्वर महाराज पाथरी <br>श्री धोंडोपंत महाराज भोसे <br>श्री स. स. शंकर महाराज रसाळ दादा कोलेवाडी <br>श्री स. स. पांडुरंग महाराज रसाळ श्री क्षेत्र जेऊर<br></b></h3></div>
+                    </ion-content>
+                </ion-view>
+            </script>
+            <script id="templates/karyakram.html" type="text/ng-template">
+                <ion-view title="कार्यक्रम">
+                    <ion-content>
+                        <ion-list>
+                            <div ng-repeat="group in groups">
+                                <ion-item class="item" style=" background: red; /* For browsers that do not support gradients */ background: -webkit-linear-gradient(left top, red, yellow); /* For Safari 5.1 to 6.0 */ background: -o-linear-gradient(bottom right, red, yellow); /* For Opera 11.1 to 12.0 */ background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */ background: linear-gradient(to bottom right, red, yellow); /* Standard syntax */" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}"> <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i> &nbsp; <b>{{group.title}}</b> </ion-item>
+                                <ion-item class="item-accordion" style="background-color:#ffad33;color:black;font-weight:bold" ng-repeat="content in group.contents" ng-show="isGroupShown(group)" ng-click="programModal()">{{content.title}}</br>{{content.description}}</ion-item>
+                            </div>
+                        </ion-list>
+                    </ion-content>
+                </ion-view>
+                <script id="program-modal.html" type="text/ng-template">
+                    <div class="modal" style="background-color:#ffffe5">
+                        <ion-header-bar class="bar-stable">
+                            <h1 class="title"><b></b></h1></ion-header-bar>
+                        <ion-footer-bar style="background-color:transparent;bottom:5px">
+                            <div class="col text-right">
+                                <button class="button button-icon button-clear ion-reply-all" style="color:red;" ng-click="closeModal()"></button>
+                            </div>
+                        </ion-footer-bar>
+                        <ion-content>
+                            <div class="list card" style="border-radius: 0px !important;">
+                                <div class="item item-avatar item-text-wrap"> <img ng-src="http://placehold.it/65x65">
+                                    <h2>{{content.line}}</h2> </div>
+                            </div>
+                        </ion-content>
+                    </div>
+                </script>
+                <script id="templates/sampark.html" type="text/ng-template">
+                    <ion-view title="संपर्क">
+                        <ion-content>
+                            <br/>
+                            <br/>
+                            <center>
+                                <h2 style="border-style: solid; border-bottom: thin solid black;margin-bottom:5px">श्री इंचगिरी रसाळ सांप्रदाय संस्थान</h2> </center>
+                            <div style="margin-left:10px;">
+                                <center>
+                                    <p><b><h3>श्री क्षेत्र जेउर , ता . पुरंदर ,जि . पुणे .</h3></p></b> </center>
+                                <br/>
+                                <p><b>मठाधिपती:</b>श्री.स.स.पांडुरंग महाराज रसाळ आण्णा:<b> ९९६७९१०१०/९४२३९१०५२१.</b></p>
+                                <p><b>अध्यक्ष : </b>श्री.तुकाराम रसाळ भाऊ:<b> ९८९०१६८०२१.</b></p>
+                                <p><b>वेदांताचार्य : </b>श्री.दिनेश रसाळ भैय्या :<b> ८९५६३५२७२८.</b></p>
+                                <p><b>अविनाश रसाळ: ८१०८३५९१८४</b></p>
+                            </div>
+                        </ion-content>
+                    </ion-view>
+                    <script id="program-modal.html" type="text/ng-template">
+                        <div class="modal" style="background-color:#ffffe5">
+                            <ion-header-bar class="bar-stable">
+                                <h1 class="title"><b>{{modalData.selectedDate}}</b></h1></ion-header-bar>
+                            <ion-footer-bar style="background-color:transparent;bottom:5px">
+                                <div class="col text-right">
+                                    <button class="button button-icon button-clear ion-reply-all" style="color:red;" ng-click="closeModal()"></button>
+                                </div>
+                            </ion-footer-bar>
+                            <ion-content>
+                                <!--<h1>// <div ng-bind-html="modalData.eventTitle | sanitize"></div></h1>// <h3 style="margin-left:10px;margin-right:10px">-->
+                                <br>
+                                <br>
+                                <div ng-bind-html="modalData.description | sanitize"></div>
+                            </ion-content>
+                        </div>
+                    </script>
+                    <script id="templates/g_alandi_saptah.html" type="text/ng-template">
+                        <div class="modal image-modal transparent" on-swipe-down="closeModal()">
+                            <ion-footer-bar style="background-color:transparent;bottom:5px">
+                                <div class="col text-right">
+                                    <button class="button button-icon button-clear ion-reply-all" ng-click="closeModal()"></button>
+                                </div>
+                            </ion-footer-bar>
+                            <ion-slide-box active-slide="activeSlide">
+                                <ion-slide ng-repeat="image in alandi_saptah">
+                                    <ion-scroll direction="xy" scrollbar-x="false" scrollbar-y="false" zooming="true" min-zoom="{{zoomMin}}" style="width: 100%; height: 100%" delegate-handle="scrollHandle{{$index}}" on-scroll="updateSlideStatus(activeSlide)" on-release="updateSlideStatus(activeSlide)">
+                                        <div class="image" style="background-image: url({{image.src}})"></div>
+                                    </ion-scroll>
+                                </ion-slide>
+                            </ion-slide-box>
+                        </div>
+                    </script>
+                    <script id="templates/g_ashadi.html" type="text/ng-template">
+                        <div class="modal image-modal transparent">
+                            <ion-footer-bar style="background-color:transparent;bottom:5px">
+                                <div class="col text-right">
+                                    <button class="button button-icon button-clear ion-reply-all" ng-click="closeModal()"></button>
+                                </div>
+                                <br>
+                            </ion-footer-bar>
+                            <ion-slide-box active-slide="activeSlide">
+                                <ion-slide ng-repeat="image in ashadi">
+                                    <ion-scroll direction="xy" scrollbar-x="false" scrollbar-y="false" zooming="true" min-zoom="{{zoomMin}}" style="width: auto; height: auto" delegate-handle="scrollHandle{{$index}}" on-scroll="updateSlideStatus(activeSlide)" on-release="updateSlideStatus(activeSlide)">
+                                        <div class="image" style="background-image: url({{image.src}})"></div>
+                                    </ion-scroll>
+                                </ion-slide>
+                            </ion-slide-box>
+                        </div>
+                    </script>
+                    <script id="templates/g_jeur.html" type="text/ng-template">
+                        <div class="modal image-modal transparent">
+                            <ion-footer-bar style="background-color:transparent;bottom:5px">
+                                <div class="col text-right">
+                                    <button class="button button-icon button-clear ion-reply-all" ng-click="closeModal()"></button>
+                                </div>
+                            </ion-footer-bar>
+                            <ion-slide-box active-slide="activeSlide">
+                                <ion-slide ng-repeat="image in jeur_saptah">
+                                    <ion-scroll direction="xy" scrollbar-x="false" scrollbar-y="false" zooming="true" min-zoom="{{zoomMin}}" style="width: auto; height: auto" delegate-handle="scrollHandle{{$index}}" on-scroll="updateSlideStatus(activeSlide)" on-release="updateSlideStatus(activeSlide)">
+                                        <div class="image" style="background-image: url({{image.src}})"></div>
+                                    </ion-scroll>
+                                </ion-slide>
+                            </ion-slide-box>
+                        </div>
+                    </script>
+                    <script id="templates/g_visitors.html" type="text/ng-template">
+                        <div class="modal image-modal transparent">
+                            <ion-footer-bar style="background-color:transparent;bottom:5px">
+                                <div class="col text-right">
+                                    <button class="button button-icon button-clear ion-reply-all" ng-click="closeModal()"></button>
+                                </div>
+                            </ion-footer-bar>
+                            <ion-slide-box active-slide="activeSlide">
+                                <ion-slide ng-repeat="image in bhakt_visit">
+                                    <ion-scroll direction="xy" scrollbar-x="false" scrollbar-y="false" zooming="true" min-zoom="{{zoomMin}}" style="width: auto; height: auto" delegate-handle="scrollHandle{{$index}}" on-scroll="updateSlideStatus(activeSlide)" on-release="updateSlideStatus(activeSlide)">
+                                        <div class="image" style="background-image: url({{image.src}})"></div>
+                                    </ion-scroll>
+                                </ion-slide>
+                            </ion-slide-box>
+                        </div>
+                    </script>
+                    <script id="templates/menu.html" type="text/ng-template">
+                        <ion-side-menus>
+                            <ion-side-menu-content ng-controller="NavCtrl">
+                                <ion-nav-bar class="bar-positive">
+                                    <!-- <ion-nav-back-button class="button-icon ion-arrow-left-c"> </ion-nav-back-button> --></ion-nav-bar>
+                                <ion-nav-buttons side="left">
+                                    <button class="button button-icon button-clear ion-navicon" ng-click="showMenu()"> </button>
+                                </ion-nav-buttons>
+                                <ion-nav-buttons side="right">
+                                    <button class="" ng-click="openRahu()"><b>काल-राहू</b> </button>
+                                </ion-nav-buttons>
+                                <ion-nav-view animation="slide-left-right"></ion-nav-view>
+                            </ion-side-menu-content>
+                            <ion-side-menu side="left">
+                                <ion-header-bar class="bar bar-header bar-assertive">
+                                    <h1 class="title"> <i class="icon ion-more"></i></h1> </ion-header-bar>
+                                <ion-content has-header="true">
+                                    <ul class="list">
+                                        <li>
+                                            <a class="item item-icon-left" menu-close href="#/tab/home"> <i class="icon ion-home"></i>होम⁠⁠⁠⁠ </a>
+                                        </li>
+                                        <!-- <li> <a class="item item-icon-left" menu-close href="#/tab/charitra"> <i class="icon ion-person-stalker"></i>चरित्र</a> </li>-->
+                                        <li>
+                                            <a class="item item-icon-left" menu-close href="#/tab/karyakram"> <i class="icon ion-videocamera"></i>कार्यक्रम</a>
+                                        </li>
+                                        <!-- <li> <a class="item item-icon-left" menu-close href="#/tab/granthbhandar"> <i class="icon ion-clipboard"></i>ग्रंथभंडार</a> </li>-->
+                                        <!-- <li> <a class="item item-icon-left" menu-close href="#/tab/dengi"> <i class="icon ion-social-usd"></i>देणगी</a> </li>-->
+                                        <li>
+                                            <a class="item item-icon-left" menu-close href="#/tab/sampark"> <i class="icon ion-android-call"></i>संपर्क</a>
+                                        </li>
+                                    </ul>
+                                </ion-content>
+                            </ion-side-menu>
+                            <!-- <ion-side-menu side="right"> <ion-header-bar class="bar bar-header bar-dark"> <h1 class="title">Right Menu</h1> </ion-header-bar> <ion-content> <ul class="list"> <li> <a class="item" menu-close nav-clear href="#/search">Search</a> </li><li> <a class="item" menu-close nav-clear href="#/settings">Settings</a> </li></ul> </ion-content> </ion-side-menu> --></ion-side-menus>
+                        <script id="kaal_rahu.html" type="text/ng-template">
+                            <style>
+                                .rahu table tr td {
+                                    border: 2px solid black;
+                                }
+                            </style>
+                            <div class="modal rahu" style="background-color:#ffad33">
+                                <ion-header-bar class="bar-positive">
+                                    <h1 class="title"><b>काल-राहू पाहणे</b></h1></ion-header-bar>
+                                <ion-footer-bar style="background-color:transparent;bottom:5px">
+                                    <div class="col text-right">
+                                        <button class="button button-icon button-clear ion-reply-all" style="color:red;" ng-click="closeModal()"></button>
+                                    </div>
+                                </ion-footer-bar>
+                                <ion-content>
+                                    <br>
+                                    <table class="rahu" style="width:100%;text-align:center;">
+                                        <tr>
+                                            <td style="width:30%;"><b>रविवार<br>गुरुवार</b>
+                                                <br>
+                                            </td>
+                                            <td><b>पुर्वेस</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:30%;"><b>सोमवार<br>शुक्रवार</b>
+                                                <br>
+                                            </td>
+                                            <td><b>दक्षिणेस </b></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:30%;"><b>मंगळवार</b>
+                                                <br>
+                                            </td>
+                                            <td><b>पश्चिमेस</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:30%;"><b>बुधवार<br>शनिवार</b>
+                                                <br>
+                                            </td>
+                                            <td><b>उत्तरेस</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:30%;"><b>राहु</b>
+                                                <br>
+                                            </td>
+                                            <td>
+                                                <table style="width:100%">
+                                                    <tr>
+                                                        <td>संमुख व उजवा</td>
+                                                        <td>कर्यहानी</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>वाम आणि पृष्ठभागाची</td>
+                                                        <td>कार्यसिद्धी</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </ion-content>
+                        </script>
+                        <script id="templates/tabs.html" type="text/ng-template">
+                            <ion-tabs class="tabs-icon-top tabs-positive fade-in-not-out">
+                                <ion-tab title="होम⁠⁠⁠⁠" icon="ion-home" href="menu.tabs.home">
+                                    <ion-nav-view name="home-tab"></ion-nav-view>
+                                </ion-tab>
+                                <ion-tab title="दिनदर्शिका" icon="ion-calendar" ui-sref="menu.tabs.calendar">
+                                    <ion-nav-view name="calendar-tab"></ion-nav-view>
+                                </ion-tab>
+                                <ion-tab title="चित्रावली" icon="ion-images" ui-sref="menu.tabs.gallery">
+                                    <ion-nav-view name="gallery-tab"></ion-nav-view>
+                                </ion-tab>
+                                <ion-tab title="माहिति" icon="ion-ios7-information" ui-sref="menu.tabs.info">
+                                    <ion-nav-view name="info-tab"></ion-nav-view>
+                                </ion-tab>
+                                <ion-tab class="tabs tabs-item-hide" title="menucontent">
+                                    <ion-nav-view name="menuContent"></ion-nav-view>
+                                </ion-tab>
+                            </ion-tabs>
+                        </script>
+                        <script src="js/events.min.js"></script>
+</body>
 
 </html>
